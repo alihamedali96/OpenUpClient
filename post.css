@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Limelight&family=Source+Sans+Pro:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@1,300&family=Anton&family=Source+Sans+Pro:wght@600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+.container{
+    width: 700px;
+    height: auto;
+    background-color: rgb(143, 174, 233);
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: center;
+}
+.box{
+    width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 35px;
+    margin: 15px;
+    font-family: 'Limelight', cursive;
+  
+ 
+}
+
+h2{
+    font-size: 20px;
+    margin: 25px;
+    font-family: 'Alegreya Sans', sans-serif;
+    text-align: center;
+}
+
+.name{
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.name i{
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #bbb;
+}
+.name input{
+    width: 100%;
+    padding: 20px 60px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background-color: #eee;
+    border-radius: 40px;
+}
+.name input::placeholder{
+    color: #bbb;
+    font-weight: 500;
+}
+.email{
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.message-box{
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+.message-box i{
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #bbb;
+}
+.message-box textarea{
+    width: 100%;
+    padding: 20px 60px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background-color: #eee;
+    border-radius: 40px;
+}
+.message-box textarea::placeholder{
+    color: #bbb;
+    font-weight: 500;
+}
+
+.button{
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.button button{
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #806bcd;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+
+
