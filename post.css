@@ -6,11 +6,14 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
+  
 }
+
+
 
 .container{
     width: 700px;
-    height: auto;
+   
     background-color: rgb(143, 174, 233);
     border-radius: 10px;
     position: absolute;
@@ -19,8 +22,11 @@
     transform: translate(-50%,-50%);
     display: flex;
     justify-content: center;
+    margin-top: 10%;
+  
     
 }
+
 .box{
     width: 500px;
     height: auto;
@@ -60,6 +66,7 @@ h2{
     font-size: 20px;
     color: #bbb;
 }
+
 .name input{
     width: 100%;
     padding: 20px 60px;
@@ -69,21 +76,19 @@ h2{
     background-color: #eee;
     border-radius: 40px;
 }
+
 .name input::placeholder{
     color: #bbb;
     font-weight: 500;
 }
-.email{
-    width: 100%;
-    position: relative;
-    margin-bottom: 15px;
-}
+
 
 .message-box{
     width: 100%;
     position: relative;
     margin-bottom: 15px;
 }
+
 .message-box i{
     position: absolute;
     top: 50%;
@@ -92,6 +97,7 @@ h2{
     font-size: 20px;
     color: #bbb;
 }
+
 .message-box textarea{
     width: 100%;
     padding: 20px 60px;
@@ -101,6 +107,7 @@ h2{
     background-color: #eee;
     border-radius: 40px;
 }
+
 .message-box textarea::placeholder{
     color: #bbb;
     font-weight: 500;
@@ -111,6 +118,7 @@ h2{
     cursor: pointer;
     margin-bottom: 20px;
 }
+
 .button button{
     width: 100%;
     padding: 10px;
@@ -126,12 +134,15 @@ h2{
 
 
 
-.footer {
+footer {
     position: fixed;
+    height: auto;
     left: 0;
-    bottom: 0;
+    bottom:0px;
     width: 100%;
+   
     background-color: gainsboro;
     color: darkblue;
     text-align: center;
- }
+    
+ } 
