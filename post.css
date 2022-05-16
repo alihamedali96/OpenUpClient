@@ -1,20 +1,22 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Limelight&family=Source+Sans+Pro:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@1,300&family=Anton&family=Source+Sans+Pro:wght@600&display=swap');
 
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
-  
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Quicksand', sans-serif;
 }
 
-
+body{
+	height: 100vh;
+	width: 100%;
+}
 
 .container{
     width: 700px;
-   
-    background-color: rgb(143, 174, 233);
+    height: auto;
     border-radius: 10px;
     position: absolute;
     top: 50%;
@@ -22,27 +24,32 @@
     transform: translate(-50%,-50%);
     display: flex;
     justify-content: center;
-    margin-top: 10%;
-  
-    
+    margin-top: 30px;
 }
 
-.box{
-    width: 500px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-   
+
+.contact-box{
+	max-width: 850px;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+    background-color: rgb(143, 174, 233);
+	box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
 }
+
+
+.right{
+	padding: 25px 40px;
+}
+
 
 h1 {
     font-size: 35px;
     margin: 15px;
     font-family: 'Limelight', cursive;
-  
- 
+
+
 }
 
 h2{
@@ -52,85 +59,59 @@ h2{
     text-align: center;
 }
 
-.name{
-    width: 100%;
-    position: relative;
-    margin-bottom: 15px;
+
+
+
+.field{
+	width: 100%;
+	border: 2px solid rgba(0, 0, 0, 0);
+	outline: none;
+	background-color: rgba(230, 230, 230, 0.6);
+	padding: 0.5rem 1rem;
+	font-size: 1.1rem;
+	margin-bottom: 22px;
+
 }
 
-.name i{
-    position: absolute;
-    top: 50%;
-    left: 30px;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: #bbb;
+.field:hover{
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
-.name input{
-    width: 100%;
-    padding: 20px 60px;
-    border: none;
-    outline: none;
-    font-size: 18px;
-    background-color: #eee;
-    border-radius: 40px;
+textarea{
+	min-height: 150px;
 }
 
-.name input::placeholder{
-    color: #bbb;
-    font-weight: 500;
+.btn1{
+	width: 50%;
+	padding: 0.5rem 1rem;
+	background-color: #2ecc71;
+	color: #fff;
+	font-size: 1.1rem;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: .3s;
+    margin-bottom: 10px;
+}
+.btn2{
+	width: 50%;
+	padding: 0.5rem 1rem;
+	background-color: #2ecc71;
+	color: #fff;
+	font-size: 1.1rem;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: .3s;
+}
+.btn:hover{
+    background-color: #27ae60;
 }
 
-
-.message-box{
-    width: 100%;
-    position: relative;
-    margin-bottom: 15px;
+.field:focus{
+    border: 2px solid rgba(30,85,250,0.47);
+    background-color: #fff;
 }
-
-.message-box i{
-    position: absolute;
-    top: 50%;
-    left: 30px;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: #bbb;
-}
-
-.message-box textarea{
-    width: 100%;
-    padding: 20px 60px;
-    border: none;
-    outline: none;
-    font-size: 18px;
-    background-color: #eee;
-    border-radius: 40px;
-}
-
-.message-box textarea::placeholder{
-    color: #bbb;
-    font-weight: 500;
-}
-
-.button{
-    width: 100%;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-
-.button button{
-    width: 100%;
-    padding: 10px;
-    font-size: 20px;
-    color: #fff;
-    background-color: #806bcd;
-    border: none;
-    outline: none;
-    border-radius: 40px;
-    cursor: pointer;
-}
-
 
 
 
