@@ -19,6 +19,7 @@
     transform: translate(-50%,-50%);
     display: flex;
     justify-content: center;
+    
 }
 .box{
     width: 500px;
@@ -27,6 +28,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+   
 }
 
 h1 {
@@ -123,3 +125,13 @@ h2{
 
 
 
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: gainsboro;
+    color: darkblue;
+    text-align: center;
+ }
