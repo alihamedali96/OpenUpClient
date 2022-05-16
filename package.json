@@ -1,0 +1,26 @@
+{
+  "name": "openupclient",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alihamedali96/OpenUpClient.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alihamedali96/OpenUpClient/issues"
+  },
+  "homepage": "https://github.com/alihamedali96/OpenUpClient#readme",
+  "dependencies": {
+    "jest": "^28.1.0"
+  },
+  "devDependencies": {
+    "jest-environment-jsdom": "^28.1.0"
+  }
+}
