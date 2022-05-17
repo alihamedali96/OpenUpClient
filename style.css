@@ -8,3 +8,25 @@ footer {
     color: black;
     text-align: center;
  }
+
+.button1 {
+    background-color: #e7e7e7; 
+    width: 25%;
+        }  
+
+.button2 {
+    background-color: #e7e7e7; 
+    color: black;
+    width: 25%;
+} 
+
+.button3 {
+    background-color: #e7e7e7; 
+    width: 25%;
+
+} 
+.button4 {
+    background-color: #eceaea;
+    width: 25%;
+
+} 
