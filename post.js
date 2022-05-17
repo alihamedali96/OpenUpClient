@@ -30,3 +30,30 @@ function init() {
       });
   });
 }
+
+// post request of form data to /mypage 
+
+
+const onclick = (e) => {
+  const data = {
+    data: document.querySelector('input').value
+  }
+
+
+  e.preventDefault();
+
+  fetch("/mypage", {
+    method: 'POST',
+    mode: 'no-cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+}
+
+const button = document.querySelector('#submit');
+
+button.onclick = onclick;
