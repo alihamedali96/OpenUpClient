@@ -260,13 +260,12 @@ h1 {
 
 
 }
-
-h2{
-    font-size: 20px;
+ h2{
+    font-size: 10px;
     margin: 25px;
     font-family: 'Alegreya Sans', sans-serif;
     text-align: center;
-}
+} 
 
 
 .field{
@@ -279,8 +278,6 @@ h2{
 	margin-bottom: 22px;
 
 }
-
-
 
 
 #textArea {
@@ -322,12 +319,6 @@ input{
 input{
 	min-height: 10px;
 }
-
-
-
-
-
-
 
 
 .btn1{
@@ -403,33 +394,6 @@ input{
 }
 
 
-footer {
-    position: fixed;
-    height: auto;
-    left: 0;
-    bottom:0px;
-    width: 100%;
-   
-    background-color: gainsboro;
-    color: darkblue;
-    text-align: center;
-    
- } 
-
-
-/* cards section */
-
-.cards {
-    margin: 0 auto;
-    max-width: 1000px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
-    grid-auto-rows: auto;
-    gap: 20px;
-    font-family: sans-serif;
-    padding-top: 30px;
-    box-sizing: border-box;
-}
 
 
 .gif {
@@ -441,143 +405,6 @@ footer {
   
 }
 
-/* .card__content {
-    line-height: 1.5;
-    font-size: 0.9em;
-    padding: 15px;
-    background: #fafafa;
-    border-right: 2px solid #333333;
-    border-left: 2px solid #333333;
-}
- */
-
-/* .card__info {
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #555555;
-    background: #eeeeee;
-    font-size: 0.8em;
-    border-bottom: 2px solid #333333;
-    border-right: 2px solid #333333;
-    border-left: 2px solid #333333;
-} */
-
-p {
-    font-size: 0.9em;
-    margin-right: 8px;
-}
-
-
-
-
-#myDIV{
-    max-width: 250px;
-    min-height: 340px;
-    border-radius: 25px;
-    padding: 15px;
-    margin: 10px;
-    background-color: #F5F5F5;
-    text-align: center;
-    box-shadow: 0 0 10px
-      rgba(0, 0, 0, 0.3);
-  }
-  
-   .cardTitle{
-    color: #212121;
-  }
-  
-
-  
-
-  h4{
-    text-align: center;
-    padding: 10px;
-  }
-  
-  p{
-    text-align: center;
-    padding: 10px;
-  }
-
-
-
-footer {
-    position: fixed;
-    height: auto;
-    left: 0;
-    bottom:0px;
-    width: 100%;
-   
-    background-color: gainsboro;
-    color: darkblue;
-    text-align: center;
-    
- } 
-
-
-
-
-/* .card__content {
-    line-height: 1.5;
-    font-size: 0.9em;
-    padding: 15px;
-    background: #fafafa;
-    border-right: 2px solid #333333;
-    border-left: 2px solid #333333;
-}
- */
-
-/* .card__info {
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #555555;
-    background: #eeeeee;
-    font-size: 0.8em;
-    border-bottom: 2px solid #333333;
-    border-right: 2px solid #333333;
-    border-left: 2px solid #333333;
-} */
-
-p {
-    font-size: 0.9em;
-    margin-right: 8px;
-}
-
-
-
-
-#myDIV{
-    max-width: 250px;
-    min-height: 340px;
-    border-radius: 25px;
-    padding: 15px;
-    margin: 10px;
-    background-color: #F5F5F5;
-    text-align: center;
-    box-shadow: 0 0 10px
-      rgba(0, 0, 0, 0.3);
-  }
-  
-   .cardTitle{
-    color: #212121;
-  }
-  
-
-  
-
-  h4{
-    text-align: center;
-    padding: 10px;
-  }
-  
-  p{
-    text-align: center;
-    padding: 10px;
-  }
 
 
 
