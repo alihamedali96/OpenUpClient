@@ -1,3 +1,4 @@
+//Click counter
 
 document.body.addEventListener('click', (event) => {
     const button = event.target.closest('.button');
@@ -49,6 +50,20 @@ console.log("Hi")
 
       
 
+        //BUTTON COUNTER + Disable after clicking
+        const ELS_button = document.querySelectorAll(".clickme");
+        const EL_counter = document.querySelector("#counter");
+        let count = 0;
+
+  const incrementCount = (ev) => {
+  count += 1;
+  ev.currentTarget.disabled = true; // make button disabled
+  EL_counter.textContent = count;
+};
+
+ELS_button.forEach(el => {
+  el.addEventListener("click", incrementCount);
+});
    
   
 
