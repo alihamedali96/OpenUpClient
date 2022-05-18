@@ -1,7 +1,3 @@
-// const form = document.getElementById('form')
-
-
-
 //   const url = "http://localhost:3000/homepage"
 // const options = {
 //   method: 'PATCH',
@@ -84,19 +80,48 @@ function createSection(data){
     mainContainer.appendChild(cardBody)
 }
 
-async function getTopPosts(){
-    try{
-        const response = await fetch('http://localhost:3000/homepage/')
-        const data = await response.json()
-        data.forEach(e => createSection(e))
+
+const searchBtn = document.querySelector('#searchBtn')
+const searchBar = document.querySelector('#searchBar')
+
+searchBar.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+        e.preventDefault()
+        searchBtn.click()
+    }
+})
+
+//caching issue
+//need to mske insensitive to case
+
+searchBtn.addEventListener('click', (e)=>{
+    e.preventDefault()
+    const search = searchBar.value
+    const cardBodys = document.getElementsByClassName('cardBody')
+    const cardTitles = document.getElementsByClassName('cardTitle')
+    const cardTexts = document.getElementsByClassName('cardText')
+    for (let i = 0; i < cardBodys.length; i++) {
+        if(cardTitles[i].textContent.includes(search)||cardTexts[i].textContent.includes(search)){
+            cardBodys[i].style.visibility = 'visible'
+        }else{
+            cardBodys[i].style.display = 'none'
+        }
         
+    }
+})
+
+async function getAllPosts(){
+    try{
+        const response = await fetch('http://localhost:3000/allposts/')
+        posts = await response.json()
+        posts.forEach(e => createSection(e))
     }catch(err){
         console.log('Something went wrong '+ err.message)
     }
 }
 
-getTopPosts()
+getAllPosts()
 
-
-
-
+function refreshPage(){
+    window.location.reload();
+} 

@@ -1,16 +1,3 @@
-// const form = document.getElementById('form')
-
-
-
-//   const url = "http://localhost:3000/homepage"
-// const options = {
-//   method: 'PATCH',
-//   body: JSON.stringify({id: 1, comments: "What a great day this was to make a new post"})
-// }
-// fetch(url, options)
-//   .then(console.log("Patched post"))
-//   .catch(err => console.warn('Opa, something went wrong!', err)) 
-
 const mainContainer = document.querySelector('.flex-container')
 
 function createSection(data){
@@ -84,9 +71,9 @@ function createSection(data){
     mainContainer.appendChild(cardBody)
 }
 
-async function getTopPosts(){
+async function getMyPosts(){
     try{
-        const response = await fetch('http://localhost:3000/homepage/')
+        const response = await fetch('http://localhost:3000/mypage/')
         const data = await response.json()
         data.forEach(e => createSection(e))
         
@@ -95,8 +82,4 @@ async function getTopPosts(){
     }
 }
 
-getTopPosts()
-
-
-
-
+getMyPosts()
