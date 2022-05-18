@@ -36,20 +36,25 @@ function createSection(data){
     
     const btnGroup = document.createElement('div')
     btnGroup.className = 'btn-group'
-    const counter = document.createElement('div')
-    counter.className = 'counter'
-    counter.textContent = data.interactions
     const button1 = document.createElement('button')
-    button1.className = 'likes button button1'
+    button1.className = 'likes button button1 clickme'
     button1.innerHTML = '&#128293;'
     const button2 = document.createElement('button')
-    button2.className = 'likes button button2'
+    button2.className = 'likes button button2 clickme'
     button2.innerHTML = '&#128151;'
     const button3 = document.createElement('button')
-    button3.className = 'likes button button3'
+    button3.className = 'likes button button3 clickme'
     button3.innerHTML = '&#128078;'
+    const button4 = document.createElement('button')
+    button4.className = 'likes button button4 clickme'
+    button4.textContent = 'Total clicks:'
+    const counter = document.createElement('span')
+    counter.id = 'counter'
+    counter.textContent = data.interactions
 
-    btnGroup.appendChild(counter)
+    button4.appendChild(counter)
+
+    btnGroup.appendChild(button4)
     btnGroup.appendChild(button1)
     btnGroup.appendChild(button2)
     btnGroup.appendChild(button3)
@@ -115,6 +120,7 @@ function init() {
         console.error(err);
       });
   });
+  // getMyPosts()
 }
 
 
@@ -161,32 +167,71 @@ async function postBlog(e) {
     const newBlogData = {
       id: "",
       title: document.getElementById("title").value,
-      text: document.getElementById("text").value,
+      text: document.getElementById("textArea").value,
       image_url: document.getElementById("gif").value,
-      public: document.getElementsByClassName("radioBTN").value,
-      interactions: "", 
-      comments: "", 
+      isPublic: document.querySelector('input[name="isPublic"]:checked').value,
+      interactions: 0, 
+      comments: ""
     };
-
     const options = {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify(newBlogData),
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
     };
-
-    const response = await fetch("http://localhost:3000/mypage", options);
+    const response = await fetch("http://localhost:3000/mypage/", options);
     const data = await response.json();
-    return data;
-  } catch (err) {
-    console.warn(err);
-  }
+    console.log(data)
+    } catch (err) {
+      console.warn(err);
+    }
 }
+  // fetch("http://localhost:3000/mypage", options)
+  //   .then((r) => r.json())
+  //   .then(data => {
+  //     console.log(data)
+  // //     // getAllPosts()
+  //   })
+  //   .catch(console.warn);
 
 
-const submit = document.getElementById("submit");
+
+
+// async function postBlog(e) {
+//   e.preventDefault();
+//   try {
+//     const newBlogData = {
+//       id: "",
+//       title: document.getElementById("title").value,
+//       text: document.getElementById("textArea").value,
+//       image_url: document.getElementById("gif").value,
+//       isPublic: document.querySelector('input[name="isPublic"]:checked').value,
+//       interactions: "", 
+//       comments: "", 
+//     };
+
+//     const options = {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(newBlogData),
+//     };
+//     const response = await fetch("http://localhost:3000/mypage", options);
+//     const data = await response.json();
+//     return data;
+//   } catch (err) {
+//     console.warn(err);
+//   }
+// }
+
+
+// const form = document.getElementById("myForm");
 // const submitprivate = document.getElementById("submitprivate");
+
+const submit = document.getElementById('submit')
+
 
 submit.addEventListener("click", postBlog)
 // submitprivate.addEventListener("click", postBlog);

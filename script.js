@@ -17,6 +17,10 @@ function createSection(data){
     const cardImg = document.createElement('img')
     const linkToImage = data.img_url
     cardImg.setAttribute('src', linkToImage)
+    
+    if(data.img_url = 'undefined'){
+        cardImg.style.display = 'none'
+    }
 
     const comments = document.createElement('p')
     comments.className = 'comments'
@@ -31,28 +35,37 @@ function createSection(data){
 
     const textArea = document.createElement('textarea')
     textArea.setAttribute('name', 'commentsSection')
+    textArea.id = `CommentText${data.id}`
 
     const submit = document.createElement('input')
     submit.setAttribute('type', 'submit')
     submit.setAttribute('value', 'Post comment')
     submit.className = 'commentBtn'
+    submit.id = data.id
     
     const btnGroup = document.createElement('div')
     btnGroup.className = 'btn-group'
-    const counter = document.createElement('div')
-    counter.className = 'counter'
-    counter.textContent = data.interactions
+    
+    
     const button1 = document.createElement('button')
-    button1.className = 'likes button button1'
+    button1.className = 'likes button button1 clickme'
     button1.innerHTML = '&#128293;'
     const button2 = document.createElement('button')
-    button2.className = 'likes button button2'
+    button2.className = 'likes button button2 clickme'
     button2.innerHTML = '&#128151;'
     const button3 = document.createElement('button')
-    button3.className = 'likes button button3'
+    button3.className = 'likes button button3 clickme'
     button3.innerHTML = '&#128078;'
+    const button4 = document.createElement('button')
+    button4.className = 'likes button button4 clickme'
+    button4.textContent = 'Total clicks:'
+    const counter = document.createElement('span')
+    counter.id = 'counter'
+    counter.textContent = data.interactions
 
-    btnGroup.appendChild(counter)
+    button4.appendChild(counter)
+
+    btnGroup.appendChild(button4)
     btnGroup.appendChild(button1)
     btnGroup.appendChild(button2)
     btnGroup.appendChild(button3)
@@ -88,30 +101,57 @@ async function getTopPosts(){
 getTopPosts()
 
 
-const postCommentForm = document.querySelectorAll('.commentBtn')
+// const postCommentForm = document.querySelector('.commentBtn')
 
-postCommentForm.forEach(item => {
-    item.addEventListener('click', (e) => {
+
+// async function postComment(e) {
+//     e.preventDefault();
+//     try {
+//         const commentId = e.target.id
+//         comsole.log(commentId)
+//       const newCommentData = {
+//         id: `${commentId}`,
+//         comments: document.getElementById(`${commentId}`).value
+//       };
+//       const options = {
+//         method: "PATCH",
+//         body: JSON.stringify(newCommentData),
+//         headers: {
+//           "Content-Type": "application/json; charset=UTF-8",
+//         },
+//       };
+//       const response = await fetch("http://localhost:3000/homepage/", options);
+//       const data = await response.json();
+//       console.log(data)
+//       } catch (err) {
+//         console.warn(err);
+//       }
+//   }
+
+
+
+// postCommentForm.forEach(item => {
+//     item.addEventListener('click', (e) => {
         
-    e.preventDefault()
-    console.log(e)
-    // const options = {
-    // method: 'PATCH',
-    // body: JSON.stringify({comments: "What a great day this was to make a new post"})
-    // }
-    // fetch("http://localhost:3000/homepage", options)
-    // .then(console.log("Patched post"))
-    // .catch(err => console.warn('Opa, something went wrong!', err)) 
-})
-})
+//     e.preventDefault()
+//     console.log('hi')
+//     // const options = {
+//     // method: 'PATCH',
+//     // body: JSON.stringify({comments: "What a great day this was to make a new post"})
+//     // }
+//     // fetch("http://localhost:3000/homepage", options)
+//     // .then(console.log("Patched post"))
+//     // .catch(err => console.warn('Opa, something went wrong!', err)) 
+// })
+// })
 
 
 //Click counter      
 
-        //BUTTON COUNTER + Disable after clicking
-        const ELS_button = document.querySelectorAll(".clickme");
-        const EL_counter = document.querySelector("#counter");
-        let count = 0;
+//BUTTON COUNTER + Disable after clicking
+const ELS_button = document.querySelectorAll(".clickme");
+const EL_counter = document.querySelector("#counter");
+let count = 0;
 
   const incrementCount = (ev) => {
   count += 1;
@@ -124,3 +164,51 @@ ELS_button.forEach(el => {
 });
    
 
+const flexCont = document.querySelector('.flex-container')
+
+// flexCont.addEventListener('click', event => {
+//     console.log('hi')
+//   })
+
+//   postCommentForm.forEach(item => {
+//     item.addEventListener('click', event => {
+//         event.preventDefault()
+//         console.log('hi')
+//     })
+//   })
+
+
+window.onload=function(){
+    const postCommentForm = document.querySelectorAll('.commentBtn')
+    async function postComment(e) {
+        e.preventDefault();
+        const commentId = e.target.id
+            const commentBoxId = `CommentText${commentId}`
+            const getElId = '"' + commentBoxId + '"'
+            const commentBox = document.getElementById(getElId)
+            console.log(commentBox)
+        try {
+            console.log(getElId)
+            console.log(commentId)
+          const newCommentData = {
+            id: commentId,
+            comments: "hi",
+          };
+          const options = {
+            method: "PATCH",
+            body: JSON.stringify(newCommentData),
+            headers: {
+              "Content-Type": "application/json; charset=UTF-8",
+            },
+          };
+          const response = await fetch("http://localhost:3000/homepage/", options);
+          const data = await response.json();
+          console.log(data)
+          } catch (err) {
+            console.warn(err);
+          }
+      }
+    postCommentForm.forEach(item => {
+        item.addEventListener('click', postComment)
+      })
+  }
