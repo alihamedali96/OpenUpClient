@@ -1,6 +1,4 @@
-/* cards design / hidden div before search / searchResults */
-
-.cards {
+/* .cards {
     margin: 0 auto;
     max-width: 1000px;
     display: grid;
@@ -67,4 +65,54 @@
 
 .card__link:hover {
     text-decoration: underline;
+
+} */ */
+
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: gainsboro;
+    color: black;
+    text-align: center;
+ }
+
+.flex-container {
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+ .cardBody {
+    margin: 10px;
+    background-color: grey;
+    width: 30%;
+    height: 400px;
+}
+
+.comments {
+    overflow: auto;
+    height: 60px;
+}
+.textArea {
+    width: 90%;
+}
+
+.searchDiv{
+    width: 50%;
+    margin: 0 auto;
+}
+.newSearchDiv{
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.newSearch{
+    width: 40%;
+    margin-top: 20px;
 }

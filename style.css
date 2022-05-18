@@ -9,6 +9,35 @@ footer {
     text-align: center;
  }
 
+.flex-container {
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+ .cardBody {
+    margin: 10px;
+    background-color: grey;
+    width: 30%;
+    height: 400px;
+}
+
+.comments {
+    overflow: auto;
+    height: 60px;
+}
+.textArea {
+    width: 90%;
+}
+
+.counter{
+    width: 30px;
+    text-align: center;
+    background-color: blueviolet;
+}
+
 .button1 {
     background-color: #e7e7e7; 
     width: 25%;
