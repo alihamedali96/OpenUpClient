@@ -2,14 +2,7 @@
 
 
 
-//   const url = "http://localhost:3000/homepage"
-// const options = {
-//   method: 'PATCH',
-//   body: JSON.stringify({id: 1, comments: "What a great day this was to make a new post"})
-// }
-// fetch(url, options)
-//   .then(console.log("Patched post"))
-//   .catch(err => console.warn('Opa, something went wrong!', err)) 
+
 
 const mainContainer = document.querySelector('.flex-container')
 
@@ -35,7 +28,8 @@ function createSection(data){
     comments.textContent = data.comments
 
     const form = document.createElement('form')
-    form.action = 'PATCH'
+    // form.action = 'PATCH'
+    form.className = 'commentForm'
 
     const formLabel = document.createElement('label')
     formLabel.setAttribute('for', 'commentsSection')
@@ -46,6 +40,7 @@ function createSection(data){
     const submit = document.createElement('input')
     submit.setAttribute('type', 'submit')
     submit.setAttribute('value', 'Post comment')
+    submit.className = 'commentBtn'
     
     const btnGroup = document.createElement('div')
     btnGroup.className = 'btn-group'
@@ -96,6 +91,25 @@ async function getTopPosts(){
 }
 
 getTopPosts()
+
+
+
+const postCommentForm = document.querySelectorAll('.commentBtn')
+
+postCommentForm.forEach(item => {
+    item.addEventListener('click', (e) => {
+        
+    e.preventDefault()
+    console.log(e)
+    // const options = {
+    // method: 'PATCH',
+    // body: JSON.stringify({comments: "What a great day this was to make a new post"})
+    // }
+    // fetch("http://localhost:3000/homepage", options)
+    // .then(console.log("Patched post"))
+    // .catch(err => console.warn('Opa, something went wrong!', err)) 
+})
+})
 
 
 
