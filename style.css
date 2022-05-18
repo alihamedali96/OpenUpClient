@@ -37,3 +37,37 @@ footer {
     text-align: center;
     background-color: blueviolet;
 }
+
+.button1 {
+    background-color: #e7e7e7; 
+    width: 25%;
+        }  
+
+.button2 {
+    background-color: #e7e7e7; 
+    color: black;
+    width: 25%;
+} 
+
+.button3 {
+    background-color: #e7e7e7; 
+    width: 25%;
+
+} 
+.button4 {
+    background-color: #eceaea;
+    width: 25%;
+
+} 
+
+.button5 {
+    background-color: #eceaea;
+    width: 100%;
+
+} 
+
+div.ex1 {
+    height: 200px;
+    width: 100%;
+    overflow-y: scroll;
+  }

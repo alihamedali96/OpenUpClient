@@ -1,9 +1,4 @@
 // const form = document.getElementById('form')
-
-
-
-
-
 const mainContainer = document.querySelector('.flex-container')
 
 function createSection(data){
@@ -93,7 +88,6 @@ async function getTopPosts(){
 getTopPosts()
 
 
-
 const postCommentForm = document.querySelectorAll('.commentBtn')
 
 postCommentForm.forEach(item => {
@@ -112,5 +106,21 @@ postCommentForm.forEach(item => {
 })
 
 
+//Click counter      
 
+        //BUTTON COUNTER + Disable after clicking
+        const ELS_button = document.querySelectorAll(".clickme");
+        const EL_counter = document.querySelector("#counter");
+        let count = 0;
+
+  const incrementCount = (ev) => {
+  count += 1;
+  ev.currentTarget.disabled = true; // make button disabled
+  EL_counter.textContent = count;
+};
+
+ELS_button.forEach(el => {
+  el.addEventListener("click", incrementCount);
+});
+   
 
