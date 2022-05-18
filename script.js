@@ -13,3 +13,17 @@ document.body.addEventListener('click', (event) => {
   
     counter.innerText = Number(counter.innerText) + 1;
   });
+
+
+  // button counter/interaction counter
+
+  let add = document.getElementById("increment");
+  
+  let int = document.getElementById("number");
+
+  let integer = 0;
+
+  add.addEventListener("click", function(){
+    integer += 1;
+    int.innerHTML = integer;
+  })
