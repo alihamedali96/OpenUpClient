@@ -78,6 +78,7 @@ async function postBlog(e) {
       text: document.getElementById("text").value,
       image_url: document.getElementById("gif").value,
       interactions: "", 
+      comments: "", 
 
     };
     const options = {
