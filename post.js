@@ -77,10 +77,11 @@ async function postBlog(e) {
       title: document.getElementById("title").value,
       text: document.getElementById("text").value,
       image_url: document.getElementById("gif").value,
+      isPublic: document.getElementsByClassName("radioBTN").value,
       interactions: "", 
       comments: "", 
-
     };
+
     const options = {
       method: "POST",
       headers: {
@@ -88,6 +89,7 @@ async function postBlog(e) {
       },
       body: JSON.stringify(newBlogData),
     };
+
     const response = await fetch("http://localhost:3000/mypage", options);
     const data = await response.json();
     return data;
