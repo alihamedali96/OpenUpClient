@@ -30,3 +30,74 @@ function init() {
       });
   });
 }
+
+
+
+
+
+// post request of form data to /mypage 
+
+
+// const onclick = (e) => {
+//   const data = {
+//     data: document.querySelector('input').value
+//   }
+
+
+//   e.preventDefault();
+
+//   fetch("/mypage", {
+//     method: 'POST',
+//     mode: 'no-cors',
+//     cache: 'no-cache',
+//     credentials: 'same-origin',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(data) // body data type must match "Content-Type" header
+//   });
+// }
+
+// const button = document.querySelector('#submit');
+
+// button.onclick = onclick;
+
+
+
+
+
+
+// function to post a new blog
+
+async function postBlog(e) {
+  e.preventDefault();
+  try {
+    const newBlogData = {
+      title: document.getElementById("title").value,
+      text: document.getElementById("text").value,
+      image_url: document.getElementById("gif").value,
+    };
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newBlogData),
+    };
+    const response = await fetch("http://localhost:3000/mypage", options);
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.warn(err);
+  }
+}
+
+
+const submitpublic = document.getElementById("submitpublic");
+const submitprivate = document.getElementById("submitprivate");
+
+submitpublic.addEventListener("click", postBlog)
+submitprivate.addEventListener("click", postBlog);
+
+
+
