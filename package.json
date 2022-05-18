@@ -4,7 +4,8 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -18,11 +19,11 @@
   },
   "homepage": "https://github.com/alihamedali96/OpenUpClient#readme",
   "dependencies": {
-    "jest": "^28.1.0",
     "tailwind": "^4.0.0",
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
+    "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0"
   }
 }
