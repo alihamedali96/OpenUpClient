@@ -93,11 +93,11 @@ async function postBlog(e) {
 }
 
 
-const submitpublic = document.getElementById("submitpublic");
-const submitprivate = document.getElementById("submitprivate");
+const submit = document.getElementById("submit");
+// const submitprivate = document.getElementById("submitprivate");
 
-submitpublic.addEventListener("click", postBlog)
-submitprivate.addEventListener("click", postBlog);
+submit.addEventListener("click", postBlog)
+// submitprivate.addEventListener("click", postBlog);
 
 
 
