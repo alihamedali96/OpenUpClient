@@ -77,6 +77,8 @@ async function postBlog(e) {
       title: document.getElementById("title").value,
       text: document.getElementById("text").value,
       image_url: document.getElementById("gif").value,
+      interactions: "", 
+
     };
     const options = {
       method: "POST",
