@@ -1,4 +1,12 @@
-// const form = document.getElementById('form')
+//   const url = "http://localhost:3000/homepage"
+// const options = {
+//   method: 'PATCH',
+//   body: JSON.stringify({id: 1, comments: "What a great day this was to make a new post"})
+// }
+// fetch(url, options)
+//   .then(console.log("Patched post"))
+//   .catch(err => console.warn('Opa, something went wrong!', err)) 
+
 const mainContainer = document.querySelector('.flex-container')
 
 function createSection(data){
@@ -23,8 +31,7 @@ function createSection(data){
     comments.textContent = data.comments
 
     const form = document.createElement('form')
-    // form.action = 'PATCH'
-    form.className = 'commentForm'
+    form.action = 'PATCH'
 
     const formLabel = document.createElement('label')
     formLabel.setAttribute('for', 'commentsSection')
@@ -35,7 +42,6 @@ function createSection(data){
     const submit = document.createElement('input')
     submit.setAttribute('type', 'submit')
     submit.setAttribute('value', 'Post comment')
-    submit.className = 'commentBtn'
     
     const btnGroup = document.createElement('div')
     btnGroup.className = 'btn-group'
@@ -74,53 +80,59 @@ function createSection(data){
     mainContainer.appendChild(cardBody)
 }
 
-async function getTopPosts(){
-    try{
-        const response = await fetch('http://localhost:3000/homepage/')
-        const data = await response.json()
-        data.forEach(e => createSection(e))
+
+const searchBtn = document.querySelector('#searchBtn')
+const searchBar = document.querySelector('#searchBar')
+
+searchBar.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+        e.preventDefault()
+        searchBtn.click()
+    }
+})
+
+//caching issue
+//need to mske insensitive to case
+
+searchBtn.addEventListener('click', (e)=>{
+    e.preventDefault()
+    const search = searchBar.value
+    const cardBodys = document.getElementsByClassName('cardBody')
+    const cardTitles = document.getElementsByClassName('cardTitle')
+    const cardTexts = document.getElementsByClassName('cardText')
+    for (let i = 0; i < cardBodys.length; i++) {
+        if(cardTitles[i].textContent.includes(search)||cardTexts[i].textContent.includes(search)){
+            cardBodys[i].style.visibility = 'visible'
+        }else{
+            cardBodys[i].style.display = 'none'
+        }
         
+    }
+})
+
+async function getAllPosts(){
+    try{
+        const response = await fetch('http://localhost:3000/allposts/')
+        posts = await response.json()
+        posts.forEach(e => createSection(e))
     }catch(err){
         console.log('Something went wrong '+ err.message)
     }
 }
 
-getTopPosts()
+getAllPosts()
 
+function refreshPage(){
+    window.location.reload();
+} 
 
-const postCommentForm = document.querySelectorAll('.commentBtn')
+// function to get all the posts
 
-postCommentForm.forEach(item => {
-    item.addEventListener('click', (e) => {
-        
-    e.preventDefault()
-    console.log(e)
-    // const options = {
-    // method: 'PATCH',
-    // body: JSON.stringify({comments: "What a great day this was to make a new post"})
-    // }
-    // fetch("http://localhost:3000/homepage", options)
-    // .then(console.log("Patched post"))
-    // .catch(err => console.warn('Opa, something went wrong!', err)) 
-})
-})
-
-
-//Click counter      
-
-        //BUTTON COUNTER + Disable after clicking
-        const ELS_button = document.querySelectorAll(".clickme");
-        const EL_counter = document.querySelector("#counter");
-        let count = 0;
-
-  const incrementCount = (ev) => {
-  count += 1;
-  ev.currentTarget.disabled = true; // make button disabled
-  EL_counter.textContent = count;
-};
-
-ELS_button.forEach(el => {
-  el.addEventListener("click", incrementCount);
-});
-   
-
+async function getData() {
+    const response = await fetch(`http://localhost:3000/allposts`)
+    const data = response.json();
+    console.log(data);
+    return data;
+  }
+  
+  getData()
