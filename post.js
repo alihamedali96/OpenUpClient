@@ -73,6 +73,7 @@ async function postBlog(e) {
   e.preventDefault();
   try {
     const newBlogData = {
+      id: "",
       title: document.getElementById("title").value,
       text: document.getElementById("text").value,
       image_url: document.getElementById("gif").value,
