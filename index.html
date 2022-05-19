@@ -5,15 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    
     <link rel="shortcut icon" href="images/OpenUp_logo.png" type="image/x-icon">
     <script defer src="script.js"></script>
     <title>OpenUp blog</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
   <!-- NAVBAR  -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -27,45 +26,72 @@
                 <a class="nav-link active" aria-current="page" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="blog.html">My Blog</a>
+                <a class="nav-link" href="allposts.html">All Posts</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="post.html">Post</a>
+                <a class="nav-link" href="myblog.html">My Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="darkLink" href="#">Darkmode</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Crazycolors mode</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
           </div>
         </div>
+        <input type="checkbox" id="toggle" class="toggle--checkbox">
+        <label for="toggle" class="toggle--label">
+          <span class="toggle--label-background"></span>
+        </label>
+    
       </nav>
+
+     
      <!-- SECTION -->
-      <section class="alert text-center bg-secondary text-white">
-        Welcome to our blog website
-    </section>
+      
+     <section class="jumbotron bg-cover" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.203) 0%,rgba(255, 255, 255, 0.308) 100%), url(https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170)">
+
+
+      <div class="container" >
+        <h1 class="jumbotron-heading">TOP POSTS THIS WEEK</h1>
+
+
+        <p id="introTitle">Opening up to people can help you gain perspective and find solutions that you may not have been able to reach on your own. We created this blog in hopes for people to share their stories and know just how much they matter</p>
+
+        
+        <p>
+          <a href="allposts.html" class="btn btn-primary my-2">All Posts</a>
+      
+        </p>
+      </div>
+    </section> 
+
+
+
+
+
     <!-- CARDS -->
-
-        <div class="row row-cols-1 row-cols-md-3 g-4" style="padding: 40px; margin:20px">
-
-          <div class="col">
-            <div class="card h-100">
-              <div class="card-body ex1">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-                <div class="d-grid">
-                  <div class="btn-group">
-                  <button class="likes button button1">&#128293;<div class="counter">0</div></button>
-                  <button class="likes button button2">&#128151;<div class="counter">0</div></button>
-                  <button class="likes button button3">&#128078;<div class="counter">0</div></button>
-                  <button class="button button4">Comment</button>
-                </div>
-              </div>
-            </div>
-          </div>
-<!-- card counter + disable fucntion -->
-          <div class="card h-100">
+    <div class="flex-container">
+      <!-- <div class="cardBody">
+        <h5 class="cardTitle">All Blog 6</h5>
+        <p class="cardText">Lorem dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec qu</p>
+        <img src="" alt="" class="cardImg">
+        <div class="btn-group">
+          <div class="counter">0</div>
+          <button class="likes button button1">&#128293;</button>
+          <button class="likes button button2">&#128151;</button>
+          <button class="likes button button3">&#128078;</button>
+        </div>
+        <p class="comments">asdasdasdasas</p>
+        <form action="PATCH">
+          <label for="commentSection">Comment here</label>
+          <textarea name="commentSection" id="commentSection" cols="20" rows="5"></textarea>
+          <input type="submit" value="Post comment">
+        </form>
+      </div> -->
+    </div>
+      <!-- <div class="card h-100">
             <div class="card-body ex1">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -79,30 +105,10 @@
                 <button class="button button5">Comment</button>
               </div>
             </div>
-          </div>
-       
-
-
-         
-
+          </div> -->
     
-      
 
-
-      
-
-   
-          <footer> futureproof</footer>
-
-          
-        </div>
-        
-
-      <div class="footer">
-        <a href="https://www.getfutureproof.co.uk/"><p>futureproof 2022</p></a>
-      </div>
-
-      
-
+     
+      <footer> <a href="https://github.com/alihamedali96/OpenUpClient"><p class="foot2">futureproof</p></a></footer>
 </body>
 </html>
