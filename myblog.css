@@ -49,6 +49,7 @@
 body{
 	height: 100vh;
 	width: 100%;
+  background-color: var(--primary-color);
 }
 
 .wrap {
@@ -74,8 +75,9 @@ body{
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-  background-color: rgb(143, 174, 233);
-	box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+  background-color: rgb(177, 196, 230);
+	box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.12);
+  border-radius: 0.25rem;
 }
 
 .right{
@@ -88,7 +90,7 @@ h1 {
   font-family: 'Limelight', cursive;
 }
 
-h2{
+h2 {
   font-size: 20px;
   margin: 25px;
   font-family: 'Alegreya Sans', sans-serif;
@@ -99,10 +101,8 @@ h2{
   display: flex;
   height: 60px;
   width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  display: center;
-  vertical-align: middle;
+  margin: 0 auto;
+  padding-right: 30px;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -140,32 +140,14 @@ background-color: var(--color-pink);
 color: var(--color-black);
 }
 
-.field{
+.field {
 	width: 100%;
-	border: 2px solid rgba(0, 0, 0, 0);
+	border: none;
 	outline: none;
 	background-color: rgba(230, 230, 230, 0.6);
 	padding: 0.5rem 1rem;
 	font-size: 1.1rem;
 	margin-bottom: 22px;
-}
-
-.field:hover{
-	background-color: rgba(0, 0, 0, 0.1);
-}
-
-.field1{
-	width: 50%;
-	border: 2px solid rgba(0, 0, 0, 0);
-	outline: none;
-	background-color: rgba(230, 230, 230, 0.6);
-	padding: 0.5rem 1rem;
-	font-size: 1.1rem;
-	margin-bottom: 22px;
-}
-
-.field1:hover{
-	background-color: rgba(0, 0, 0, 0.1);
 }
 
 #textArea {
@@ -178,19 +160,18 @@ color: var(--color-black);
 	margin-bottom: 22px;
 }
 
-input{
+input {
 	min-height: 10px;
 }
 
-.btn1{
+.btn1 {
 	width: 50%;
 	padding: 0.5rem 1rem;
-	background-color: #2ecc71;
+	background-color: #5e87b9;
 	color: #fff;
 	font-size: 1.1rem;
 	border: none;
 	outline: none;
-	cursor: pointer;
 	transition: .3s;
   margin-bottom: 10px;
   display: block;
@@ -202,19 +183,9 @@ input{
   background-color: #27ae60;
 }
 
-.field:focus{
-  border: 2px solid rgba(30,85,250,0.47);
-  background-color: #fff;
-}
-
-.field1:focus{
-  border: 2px solid rgba(30,85,250,0.47);
-  background-color: #fff;
-}
-
 .giph1{
 	width: 50%;
-	border: 2px solid rgba(0, 0, 0, 0);
+	border: none;
 	outline: none;
 	background-color: rgba(230, 230, 230, 0.6);
 	padding: 0.5rem 1rem;
@@ -224,26 +195,19 @@ input{
 
 .giphSearch {
   font-size: 23px;
-  margin-right: 1%;
+  padding-right: 20px;
 }
 
 #btnSearch {
-  width: 10%;
 	padding: 0.5rem 1rem;
-	background-color: #2ecc71;
+	background-color: #5e87b9;
 	color: #fff;
 	font-size: 1.1rem;
 	border: none;
 	outline: none;
-	cursor: pointer;
-}
-
-#btnSearch:hover {
-  background-color: #27ae60;
 }
 
 .flex-container {
-  /* background-color: aqua; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -251,14 +215,13 @@ input{
 }
 
 .cardBody {
-  width: 50%;
-  height: auto;
-  cursor: default;
-  padding: 70px;
-  /* margin: 10px; */
+  width: 40%;
+  height: 600px;
+  padding: 30px;
+  margin: 40px;
   overflow: auto;
   border-radius: 0.25rem;
-  background-color: white;
+  background-color: rgb(178, 213, 224);
 }
 
 .cardBody:hover {
@@ -286,13 +249,35 @@ input{
   height: auto;
   font-family: 'Nunito', sans-serif;
   color: black;
-  display: block;
+}
+
+.button4 {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.clickme {
+  width: 35px;
+  height: 35px;
+  border-radius: 30px;
+  text-align: center;
+  background-color: rgb(93, 164, 185);
+  border: none;
+  outline: none;
+  margin-right: 5px;
+  margin-top: 15px;
 }
 
 .comments {
-  height: 60px;
   display: flex;
+  flex-wrap: wrap;
   color: rgb(9, 9, 9);
+}
+
+.comments > p{
+  width: 100%;
+  margin-top: 20px;
 }
 
 .btn-group {
@@ -305,16 +290,23 @@ input{
   padding:10px;
   border:1px solid black;
   resize:none;
+  border-radius: 10px;
+  background-color: rgb(202, 230, 238);
 }
 
-.textArea {
-  width: 100%;
+.commentBtn{
+  margin-left: 20px;
+  padding: 2px 5px;
+  background-color: rgb(183, 226, 240);
+  border-radius: 10px;
 }
+
 
 .searchDiv{
   width: 50%;
   margin: 0 auto;
 }
+
 .newSearchDiv{
   width: 50%;
   margin: 0 auto;
@@ -509,9 +501,7 @@ li a {
   --secondary-color: gainsboro;
 }
 
-body {
-  background-color: var(--primary-color);
-}
+
 
 footer {
   position: fixed;

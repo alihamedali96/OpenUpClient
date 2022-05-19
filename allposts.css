@@ -46,7 +46,6 @@
 }
 
 .flex-container {
-  /* background-color: aqua; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -54,15 +53,17 @@
 }
 
 .cardBody {
-  width: 45%;
-  height: auto;
-  cursor: default;
-  padding: 70px;
-  margin: 10px;
+  width: 40%;
+  height: 600px;
+  padding: 30px;
+  margin: 40px;
   overflow: auto;
   border-radius: 0.25rem;
-  background-color: rgb(165, 199, 247);
-  border: 1px solid #212121;
+  background-color: rgb(202, 178, 224);
+}
+
+.cardBody:hover {
+  transform: translateY(-0.5rem);
 }
 
 .gifIMG {
@@ -86,13 +87,35 @@
   height: auto;
   font-family: 'Nunito', sans-serif;
   color: black;
-  display: block;
+}
+
+.button4 {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.clickme {
+  width: 35px;
+  height: 35px;
+  border-radius: 30px;
+  text-align: center;
+  background-color: rgb(173, 136, 208);
+  border: none;
+  outline: none;
+  margin-right: 5px;
+  margin-top: 15px;
 }
 
 .comments {
-  height: 60px;
   display: flex;
+  flex-wrap: wrap;
   color: rgb(9, 9, 9);
+}
+
+.comments > p{
+  width: 100%;
+  margin-top: 20px;
 }
 
 .btn-group {
@@ -105,48 +128,29 @@
   padding:10px;
   border:1px solid black;
   resize:none;
+  border-radius: 10px;
+  background-color: rgb(224, 214, 234);
 }
 
-.textArea {
-  width: 100%;
+.commentBtn{
+  margin-left: 20px;
+  padding: 2px 5px;
+  background-color: rgb(197, 162, 230);
+  border-radius: 10px;
 }
-
-.counter{
-  width: 30px;
-  text-align: center;
-  background-color: blueviolet;
-}
-
-.button1 {
-  background-color: #e7e7e7; 
-  width: 25%;
-}  
-
-.button2 {
-    background-color: #e7e7e7; 
-    color: black;
-    width: 25%;
-} 
-
-.button3 {
-  background-color: #e7e7e7; 
-  width: 25%;
-} 
-
-.button4 {
-  background-color: #eceaea;
-  width: 50%;
-} 
-
-.button5 {
-  background-color: #eceaea;
-  width: 100%;
-} 
 
 div.ex1 {
   height: 200px;
   width: 100%;
   overflow-y: scroll;
+}
+
+#searchBar{
+  margin-top: 20px;
+}
+
+#searchBtn{
+  margin-top: 20px;
 }
 
 .searchDiv{
@@ -163,6 +167,10 @@ div.ex1 {
 .newSearch{
   width: 40%;
   margin-top: 20px;
+  background-color: #a380b7;
+  border: none;
+  border-radius: 15px;
+  padding: 5px;
 }
 
 .toggle--checkbox {
@@ -369,6 +377,7 @@ footer {
   color: var(--primary-color);
   text-align: center;
   padding: 15px;
+  font-size: 32px;
   }
 
 .foot2 {

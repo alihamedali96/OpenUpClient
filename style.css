@@ -111,14 +111,6 @@ footer {
     text-align: center;
 }
 
-.flex-container {
-  /* background-color: aqua; */
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 :root {
 --pmcolor: #f1f0f9;
 --sdcolor: #fefefe;
@@ -137,15 +129,25 @@ footer {
   text-decoration: none;
 }
 
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .cardBody {
-  width: 50%;
-  height: auto;
-  cursor: default;
-  padding: 70px;
-  /* margin: 10px; */
+  width: 40%;
+  height: 600px;
+  padding: 30px;
+  margin: 40px;
   overflow: auto;
   border-radius: 0.25rem;
-  background-color: white;
+  background-color: rgb(238, 172, 183);
+}
+
+.cardBody:hover {
+  transform: translateY(-0.5rem);
 }
 
 .gifIMG {
@@ -169,13 +171,35 @@ footer {
   height: auto;
   font-family: 'Nunito', sans-serif;
   color: black;
-  display: block;
+}
+
+.button4 {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.clickme {
+  width: 35px;
+  height: 35px;
+  border-radius: 30px;
+  text-align: center;
+  background-color: rgb(236, 136, 153);
+  border: none;
+  outline: none;
+  margin-right: 5px;
+  margin-top: 15px;
 }
 
 .comments {
-  height: 60px;
   display: flex;
+  flex-wrap: wrap;
   color: rgb(9, 9, 9);
+}
+
+.comments > p{
+  width: 100%;
+  margin-top: 20px;
 }
 
 .btn-group {
@@ -188,43 +212,16 @@ footer {
   padding:10px;
   border:1px solid black;
   resize:none;
+  border-radius: 10px;
+  background-color: rgb(236, 188, 196);
 }
 
-.textArea {
-  width: 100%;
+.commentBtn{
+  margin-left: 20px;
+  padding: 2px 5px;
+  background-color: rgb(235, 151, 165);
+  border-radius: 10px;
 }
-
-.counter{
-  width: 30px;
-  text-align: center;
-  background-color: blueviolet;
-}
-
-.button1 {
-  background-color: #e7e7e7; 
-  width: 25%;
-}  
-
-.button2 {
-  background-color: #e7e7e7; 
-  color: black;
-  width: 25%;
-} 
-
-.button3 {
-  background-color: #e7e7e7; 
-  width: 25%;
-
-} 
-.button4 {
-  background-color: #eceaea;
-  width: 50%;
-} 
-
-.button5 {
-  background-color: #eceaea;
-  width: 100%;
-} 
 
 div.ex1 {
   height: 200px;
