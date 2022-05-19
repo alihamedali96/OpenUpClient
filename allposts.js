@@ -14,6 +14,7 @@ function createSection(data){
     cardText.textContent = data.text
 
     const cardImg = document.createElement('img')
+    cardImg.className = 'gifIMG'
     const linkToImage = data.img_url
     cardImg.setAttribute('src', linkToImage)
     
@@ -34,13 +35,15 @@ function createSection(data){
     form.className = 'commentForm'
     form.id = data.id
 
+    
     const formLabel = document.createElement('label')
     formLabel.setAttribute('for', 'commentsSection')
 
     const textArea = document.createElement('textarea')
+    textArea.className = 'commentInput'
     textArea.setAttribute('name', 'commentsSection')
     textArea.id = `CommentText${data.id}`
-
+    
     const submit = document.createElement('input')
     submit.setAttribute('type', 'submit')
     submit.setAttribute('value', 'Post comment')
