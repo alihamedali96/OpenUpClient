@@ -27,11 +27,21 @@ body{
 	width: 100%;
 }
 
+.wrap {
+
+  position:relative;
+  width:100%;
+  height:auto;
+  overflow:hidden;
+
+}
+
+
 .container{
     width: 700px;
     height: auto;
     border-radius: 10px;
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -267,31 +277,130 @@ footer {
     background-color: gainsboro;
     color: darkblue;
     text-align: center;
+    padding: 10px;
     
  } 
+
+
 /*  For new cards*/
 .flex-container {
-    background-color: aqua;
+    /* background-color: aqua; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
 
+:root {
+  --pmcolor: #f1f0f9;
+  --sdcolor: #fefefe;
+  --ttcolor: #2e2e2e;
+}
+
+
  .cardBody {
-    margin: 10px;
+    /* margin: 10px;
     background-color: grey;
     width: 30%;
-    height: 400px;
+    height: 400px; */
+
+    width: 50%;
+    height: 1000%;
+    cursor: default;
+    padding: 70px;
+    margin: 10px;
+   
+    border-radius: 0.25rem;
+    background-color: rgb(119, 140, 149);
+   
+    transition: transform 0.3s ease-in-out;
+   
+}
+
+.cardBody:hover {
+  transform: translateY(-0.5rem);
+}
+
+
+.gifIMG {
+  height: auto;
+  width: 100%;
+  display: block;
+ 
+
+}
+
+.cardTitle {
+  
+ 
+  color: rgb(245, 236, 236);
+  font-weight: 900;
+  font-size: 50px;
+  
+
+}
+
+.cardText {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  line-height: 1.25em;
+  height: 90px;
+  
+  color: rgb(248, 243, 243);
+  display: inline;
+
 }
 
 .comments {
-    overflow: auto;
+  
     height: 60px;
+    display: flex;
+    color: rgb(9, 9, 9);
+    
+
+ 
+
 }
+
+
+
+.btn-group {
+
+  
+  font-size: 30px;
+ 
+  
+  
+
+
+
+}
+
+
+
+
+
+.commentInput {
+ 
+  width:100%;
+  height:auto;
+  padding:10px;
+  border:1px solid black;
+  resize:none;
+  
+}
+
+
 .textArea {
-    width: 90%;
+    width: 100%;
+   
 }
+
+
+
+
 
 .searchDiv{
     width: 50%;
