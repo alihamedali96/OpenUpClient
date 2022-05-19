@@ -33,7 +33,7 @@
 </header>
 
 <div class="wrap"> 
-<form id="myForm" type='POST' action="blog.html">
+  <form id="myForm">
   <div class="container">
       <div class="contact-box">
       
@@ -48,26 +48,26 @@
   
   <div class="InputGroup"> 
  
-    <input type="radio" class="radioBTN" name="Public" id="size_2" value="true" />
+    <input type="radio" class="radioBTN" name="isPublic" id="size_2" value="yes" />
     <label class="radioBTN" for="size_2">Public Post</label>
    
-    <input type="radio" name="Private" id="size_3" value="false" />
+    <input type="radio" name="isPublic" id="size_3" value="no" />
     <label  class="radioBTN" for="size_3">Private Post</label>
    
    </div>
 
-  <input type="text" class="field" placeholder="Title of Blog Post..." id="title" name="title">
+  <input type="text" class="field" placeholder="Title of Blog Post..." id="title" name="title" maxlength="40">
           
              
 
-  <textarea id="textArea" placeholder="Your thoughts and feelings matter..." name="textArea" cols="40" rows="5"></textarea>
+  <textarea id="textArea" placeholder="Your thoughts and feelings matter..." name="textArea" cols="40" rows="5" maxlength="200"></textarea>
 
 
               <label class="giphSearch" for="search">Search</label>
               <input class="giph1" id="search" type="search" placeholder="Enter giph phrase..."/>
-              <button id="btnSearch" >Attach</button>
+              <button id="btnSearch">Attach</button>
   
-              <button type="submit" id="submit" class="btn1">Post Public Entry</button>
+              <button type="submit" id="submit" value="submit" class="btn1">Post Public Entry</button>
               <!-- <button type="submit" id="submitprivate" class="btn2">Post Private Entry</button> -->
             </div>
             <div id="gif" class="gif"></div>
@@ -85,4 +85,3 @@
 
   </body>
 </html>
-  

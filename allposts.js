@@ -1,16 +1,7 @@
-//   const url = "http://localhost:3000/homepage"
-// const options = {
-//   method: 'PATCH',
-//   body: JSON.stringify({id: 1, comments: "What a great day this was to make a new post"})
-// }
-// fetch(url, options)
-//   .then(console.log("Patched post"))
-//   .catch(err => console.warn('Opa, something went wrong!', err)) 
-
 const mainContainer = document.querySelector('.flex-container')
 
 function createSection(data){
-    //make div, ul and img
+    
     const cardBody = document.createElement('div')
     cardBody.className = 'cardBody'
     
@@ -25,40 +16,55 @@ function createSection(data){
     const cardImg = document.createElement('img')
     const linkToImage = data.img_url
     cardImg.setAttribute('src', linkToImage)
+    
+    if(data.img_url = 'undefined'){
+        cardImg.style.display = 'none'
+    }
 
     const comments = document.createElement('p')
     comments.className = 'comments'
     comments.textContent = data.comments
 
     const form = document.createElement('form')
-    form.action = 'PATCH'
+    form.className = 'commentForm'
+    form.id = data.id
 
     const formLabel = document.createElement('label')
     formLabel.setAttribute('for', 'commentsSection')
 
     const textArea = document.createElement('textarea')
     textArea.setAttribute('name', 'commentsSection')
+    textArea.id = `CommentText${data.id}`
 
     const submit = document.createElement('input')
     submit.setAttribute('type', 'submit')
     submit.setAttribute('value', 'Post comment')
+    submit.className = 'commentBtn'
+    
     
     const btnGroup = document.createElement('div')
     btnGroup.className = 'btn-group'
-    const counter = document.createElement('div')
-    counter.className = 'counter'
-    counter.textContent = data.interactions
+    btnGroup.id = data.id
+    
     const button1 = document.createElement('button')
-    button1.className = 'likes button button1'
+    button1.className = 'likes button button1 clickme'
     button1.innerHTML = '&#128293;'
     const button2 = document.createElement('button')
-    button2.className = 'likes button button2'
+    button2.className = 'likes button button2 clickme'
     button2.innerHTML = '&#128151;'
     const button3 = document.createElement('button')
-    button3.className = 'likes button button3'
+    button3.className = 'likes button button3 clickme'
     button3.innerHTML = '&#128078;'
+    const button4 = document.createElement('button')
+    button4.className = 'likes button button4 clickme'
+    button4.textContent = 'Total clicks:'
+    const counter = document.createElement('span')
+    counter.id = 'counter'
+    counter.textContent = data.interactions
 
-    btnGroup.appendChild(counter)
+    button4.appendChild(counter)
+
+    btnGroup.appendChild(button4)
     btnGroup.appendChild(button1)
     btnGroup.appendChild(button2)
     btnGroup.appendChild(button3)
@@ -91,8 +97,6 @@ searchBar.addEventListener('keydown', (e)=>{
     }
 })
 
-//caching issue
-//need to mske insensitive to case
 
 searchBtn.addEventListener('click', (e)=>{
     e.preventDefault()
@@ -113,8 +117,8 @@ searchBtn.addEventListener('click', (e)=>{
 async function getAllPosts(){
     try{
         const response = await fetch('http://localhost:3000/allposts/')
-        posts = await response.json()
-        posts.forEach(e => createSection(e))
+        data = await response.json()
+        data.forEach(e => createSection(e))
     }catch(err){
         console.log('Something went wrong '+ err.message)
     }
@@ -125,6 +129,75 @@ getAllPosts()
 function refreshPage(){
     window.location.reload();
 } 
+<<<<<<< HEAD
+const newSearchBtn = document.querySelector('.newSearch')
+newSearchBtn.addEventListener('click', refreshPage)
+
+window.onload=function(){
+    const postCommentForm = document.querySelectorAll('.commentForm')
+    async function postComment(e) {
+        e.preventDefault();
+        const commentIdString = e.target.id
+        const commentId = parseInt(commentIdString)
+        const commentText = e.target.commentsSection
+        console.log(commentId)    
+        console.log(commentText.value)
+        try {
+            const newCommentData = {
+                id: commentId,
+                comments: commentText.value,
+            };
+            console.log(newCommentData)
+            const options = {
+                method: "PATCH",
+                body: JSON.stringify(newCommentData),
+                headers: {
+                "Content-Type": "application/json; charset=UTF-8",
+            },
+            };
+            const response = await fetch("http://localhost:3000/homepage/", options);
+            const data = await response.json();
+            console.log(data)
+            } catch (err) {
+                console.warn(err);
+            }
+        }
+        postCommentForm.forEach(item => {
+            item.addEventListener('submit', postComment)
+        })
+
+    const btn = document.querySelectorAll('.clickme')
+    // const btnGroup = document.querySelectorAll('.btn-group')
+    async function addInteraction(e) {
+        e.preventDefault();
+        const buttonIdString = e.target.parentElement.id
+        const buttonId = parseInt(buttonIdString)
+        console.log(buttonId)
+        e.currentTarget.disabled = true
+        try {
+            const newInteractionData = {
+                        id: buttonId,
+                        }
+            console.log(newInteractionData)
+            const options = {
+            method: "PATCH",
+            body: JSON.stringify(newInteractionData),
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8",
+            },          
+        }
+            const response = await fetch(`http://localhost:3000/posts/${buttonId}/`, options);
+            const data = await response.json();
+            console.log(data)
+            } catch (err) {
+                console.warn(err);
+            }
+        }
+        btn.forEach(item => {
+            item.addEventListener('click', addInteraction)
+        })
+    }
+=======
 
 // function to get all the posts
 
@@ -153,3 +226,4 @@ document.getElementById("icon").onclick = function (){
     icon.src = "images/moon.png"
   }
 }
+>>>>>>> main

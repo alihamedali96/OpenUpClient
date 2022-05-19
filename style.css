@@ -128,7 +128,7 @@ footer {
 --pmcolor: #f1f0f9;
 --sdcolor: #fefefe;
 --ttcolor: #2e2e2e;
-=======
+}
 
  .section {
   background-color: grey;
@@ -144,7 +144,7 @@ footer {
 
 
 
-}
+
 
 
  .cardBody {
@@ -193,7 +193,6 @@ footer {
   font-family: 'Nunito', sans-serif;
   color: black;
   display: inline;
-
 }
 
 .comments {
@@ -259,7 +258,7 @@ footer {
 } 
 .button4 {
     background-color: #eceaea;
-    width: 25%;
+    width: 50%;
 
 } 
 
