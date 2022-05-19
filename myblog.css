@@ -626,16 +626,3 @@ input{
       color: var(--primary-color);
       text-align: center;
    }
-  
-  
-   .section {
-    background-color: grey;
-    color: var(--primary-color);
-    text-align: center;
-    padding: 15px;
-     }
-  
-   .foot2 {
-    color: var(--primary-color);
-    text-decoration: none;
-   }
