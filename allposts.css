@@ -14,17 +14,6 @@
 
 
 
-
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: gainsboro;
-    color: black;
-    text-align: center;
- }
-
 .flex-container {
     background-color: aqua;
     display: flex;
@@ -230,3 +219,70 @@ footer {
       left: 4px;
     }
   }
+
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--primary-color);
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  
+  #icon{
+    width: 30px;
+    cursor: pointer;
+    margin: 4px;
+  }
+  
+  /* Dark Mode - we create css variables and add the in the place of color code */
+  :root{
+    --primary-color: gainsboro;
+    --secondary-color: #212121;
+  }
+  
+  
+  .dark-theme{
+    --primary-color: #212121;
+    --secondary-color: gainsboro;
+  }
+  
+  body {
+    background-color: var(--primary-color);
+  }
+  
+  footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: grey;
+      color: var(--primary-color);
+      text-align: center;
+   }
+  
+  
+   .section {
+    background-color: grey;
+    color: var(--primary-color);
+    text-align: center;
+    padding: 15px;
+     }
+  
+   .foot2 {
+    color: var(--primary-color);
+    text-decoration: none;
+   }
