@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&family=Nunito:ital,wght@0,300;1,300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&family=Secular+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&family=Secular+One&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -17,8 +30,9 @@ li a {
   padding: 14px 16px;
   text-decoration: none;
 }
-
-
+#navIcon{
+  float: right;
+}
 #icon{
   width: 30px;
   cursor: pointer;
@@ -31,7 +45,6 @@ li a {
   --secondary-color: #212121;
 }
 
-
 .dark-theme{
   --primary-color: #212121;
   --secondary-color: gainsboro;
@@ -41,21 +54,9 @@ body {
   background-color: var(--primary-color);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&family=Nunito:ital,wght@0,300;1,300&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&family=Secular+One&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&family=Secular+One&display=swap');
-
-
 :root {
   --jumbotron-padding-y: 3rem;
 }
-
-
-
 
 .jumbotron {
   position: relative;
@@ -67,24 +68,21 @@ body {
   justify-content: space-evenly;
   flex-wrap:wrap;
   font-family: 'Secular One', sans-serif;
+  background-image: url('https://images.unsplash.com/photo-1593526613712-7b4b9a707330?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070')
 }
+
 #introTitle {
   font-family: 'Domine', serif;
   color: white;
   font-weight: 900;
   font-size: 20px;
- 
-  
-
 }
-
 
 .p {
     color: black;
 }
 
-
- @media (min-width: 768px) {
+@media (min-width: 768px) {
   .jumbotron {
     padding-top: calc(var(--jumbotron-padding-y) * 2);
     padding-bottom: calc(var(--jumbotron-padding-y) * 2);
@@ -99,10 +97,9 @@ body {
   font-weight: 300;
 } 
 
-  .jumbotron .container {
+.jumbotron .container {
   max-width: 40rem;
 } 
-
 
 footer {
     position: fixed;
@@ -112,11 +109,9 @@ footer {
     background-color: grey;
     color: var(--primary-color);
     text-align: center;
- }
+}
 
- 
-
- .flex-container {
+.flex-container {
   /* background-color: aqua; */
   display: flex;
   flex-direction: row;
@@ -130,40 +125,19 @@ footer {
 --ttcolor: #2e2e2e;
 }
 
- .section {
+.section {
   background-color: grey;
   color: var(--primary-color);
   text-align: center;
   padding: 15px;
-   }
+}
 
- .foot2 {
+.foot2 {
   color: var(--primary-color);
   text-decoration: none;
- }
-
-
-
-
-
- .flex-container {
-  /* background-color: aqua; */
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  
 }
-
-:root {
---pmcolor: #f1f0f9;
---sdcolor: #fefefe;
---ttcolor: #2e2e2e;
-}
-
 
 .cardBody {
-
   width: 50%;
   height: auto;
   cursor: default;
@@ -172,287 +146,246 @@ footer {
   overflow: auto;
   border-radius: 0.25rem;
   background-color: white;
-
-
 }
-
-
 
 .gifIMG {
-height: auto;
-width: 100%;
-display: block;
-margin: 10px;
+  height: auto;
+  width: 100%;
+  display: block;
+  margin: 10px;
 }
-
 
 .cardTitle {
-font-family: 'Domine', serif;
-color: black;
-font-weight: 900;
-font-size: 30px;
+  font-family: 'Domine', serif;
+  color: black;
+  font-weight: 900;
+  font-size: 30px;
 }
 
-
 .cardText {
-
-padding: 15px;
-font-size: 20px;
-
-line-height: 1.25em;
-height: auto;
-font-family: 'Nunito', sans-serif;
-color: black;
-display: block;
-
-
+  padding: 15px;
+  font-size: 20px;
+  line-height: 1.25em;
+  height: auto;
+  font-family: 'Nunito', sans-serif;
+  color: black;
+  display: block;
 }
 
 .comments {
-
   height: 60px;
   display: flex;
   color: rgb(9, 9, 9);
-
 }
-
-
 
 .btn-group {
-
-font-size: 20px;
+  font-size: 20px;
 }
 
-
 .commentInput {
-
-width:100%;
-height:auto;
-padding:10px;
-border:1px solid black;
-resize:none;
-
+  width:100%;
+  height:auto;
+  padding:10px;
+  border:1px solid black;
+  resize:none;
 }
 
 .textArea {
   width: 100%;
- 
 }
-
-
 
 .counter{
-    width: 30px;
-    text-align: center;
-    background-color: blueviolet;
-  
-   
+  width: 30px;
+  text-align: center;
+  background-color: blueviolet;
 }
 
-
-
-
-
 .button1 {
-    background-color: #e7e7e7; 
-    width: 25%;
-        }  
+  background-color: #e7e7e7; 
+  width: 25%;
+}  
 
 .button2 {
-    background-color: #e7e7e7; 
-    color: black;
-    width: 25%;
+  background-color: #e7e7e7; 
+  color: black;
+  width: 25%;
 } 
 
 .button3 {
-    background-color: #e7e7e7; 
-    width: 25%;
+  background-color: #e7e7e7; 
+  width: 25%;
 
 } 
 .button4 {
-    background-color: #eceaea;
-    width: 50%;
-
+  background-color: #eceaea;
+  width: 50%;
 } 
 
 .button5 {
-    background-color: #eceaea;
-    width: 100%;
-
+  background-color: #eceaea;
+  width: 100%;
 } 
 
 div.ex1 {
-    height: 200px;
-    width: 100%;
-    overflow-y: scroll;
-  }
+  height: 200px;
+  width: 100%;
+  overflow-y: scroll;
+}
 
+/* toggle */
 
+:root {
+  /** sunny side **/
+  --blue-background: #C2E9F6;
+  --blue-border: #72cce3;
+  --blue-color: #96dcee;
+  --yellow-background: #fffaa8;
+  --yellow-border: #f5eb71;
+  /** dark side **/
+  --indigo-background: #808fc7;
+  --indigo-border: #5d6baa;
+  --indigo-color: #6b7abb;
+  --gray-border: #e8e8ea;
+  --gray-dots: #e8e8ea;
+  /** general **/
+  --white: #fff;
+}
 
-  /* toggle */
+.toggle--checkbox {
+  display: none;
+}
 
+.toggle--checkbox:checked ~ .background {
+  background: var(--indigo-background);
+}
+.toggle--checkbox:checked + .toggle--label {
+  background: var(--indigo-color);
+  border-color: var(--indigo-border);
+
+}
+.toggle--checkbox:checked + .toggle--label .toggle--label-background {
+  left: 60px;
+  width: 5px;
+}
+.toggle--checkbox:checked + .toggle--label .toggle--label-background:before {
+  width: 5px;
+  height: 5px;
+  top: -25px;
+}
+.toggle--checkbox:checked + .toggle--label .toggle--label-background:after {
+  width: 5px;
+  height: 5px;
+  left: -30px;
+  top: 20px;
+}
+.toggle--checkbox:checked + .toggle--label:before {
+  background: var(--white);
+  border-color: var(--gray-border);
+  animation-name: switch;
+  animation-duration: 350ms;
+  animation-fill-mode: forwards;
+}
+.toggle--checkbox:checked + .toggle--label:after {
+  transition-delay: 350ms;
+  opacity: 1;
+}
+.toggle--label {
+
+  width: 100px;
+  height: 50px;
+  background: var(--blue-color);
+  border-radius: 10px;
+  border: 5px solid var(--blue-border);
+  display: flex;
+  position: relative;
+  transition: all 350ms ease-in;
+  margin-right: 80px;
+}
+.toggle--label-background {
+  width: 1px;
+  height: 5px;
+  border-radius: 5px;
+  position: relative;
+  background: var(--white);
+  left: 13px;
+  top: 5px;
+  transition: all 150ms ease-in;
+}
+.toggle--label-background:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  width: 10px;
+  height: 5px;
+  border-radius: 5px;
+  background: var(--white);
+  left: -20px;
+  transition: all 150ms ease-in;
+}
+.toggle--label-background:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  width: 10px;
+  height: 5px;
+  border-radius: 5px;
+  background: var(--white);
+  left: -10px;
+  transition: all 150ms ease-in;
+}
+.toggle--label:before {
+  animation-name: reverse;
+  animation-duration: 350ms;
+  animation-fill-mode: forwards;
+  transition: all 350ms ease-in;
+  content: "";
+  width: 8px;
+  height: 30px;
+  border: 5px solid var(--yellow-border);
+  top: 4px;
+  left: 4px;
+  position: absolute;
+  border-radius: 8px;
+  background: var(--yellow-background);
+}
+.toggle--label:after {
+  transition-delay: 0ms;
+  transition: all 250ms ease-in;
+  position: absolute;
+  content: "";
+  box-shadow: var(--gray-dots) -13px 0 0 2px, var(--gray-dots) -24px 14px 0 -2px;
+  left: 143px;
+  top: 23px;
+  width: 10px;
+  height: 5px;
+  background: transparent;
+  border-radius: 50%;
+  opacity: 0;
+}
   
-  :root {
-    /** sunny side **/
-    --blue-background: #C2E9F6;
-    --blue-border: #72cce3;
-    --blue-color: #96dcee;
-    --yellow-background: #fffaa8;
-    --yellow-border: #f5eb71;
-    /** dark side **/
-    --indigo-background: #808fc7;
-    --indigo-border: #5d6baa;
-    --indigo-color: #6b7abb;
-    --gray-border: #e8e8ea;
-    --gray-dots: #e8e8ea;
-    /** general **/
-    --white: #fff;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  
-  
-  
-  .toggle--checkbox {
-    display: none;
-  }
-  
-  .toggle--checkbox:checked ~ .background {
-    background: var(--indigo-background);
-  }
-  .toggle--checkbox:checked + .toggle--label {
-    background: var(--indigo-color);
-    border-color: var(--indigo-border);
-  
-  }
-  .toggle--checkbox:checked + .toggle--label .toggle--label-background {
-    left: 60px;
-    width: 5px;
-  }
-  .toggle--checkbox:checked + .toggle--label .toggle--label-background:before {
-    width: 5px;
-    height: 5px;
-    top: -25px;
-  }
-  .toggle--checkbox:checked + .toggle--label .toggle--label-background:after {
-    width: 5px;
-    height: 5px;
-    left: -30px;
-    top: 20px;
-  }
-  .toggle--checkbox:checked + .toggle--label:before {
-    background: var(--white);
-    border-color: var(--gray-border);
-    animation-name: switch;
-    animation-duration: 350ms;
-    animation-fill-mode: forwards;
-  }
-  .toggle--checkbox:checked + .toggle--label:after {
-    transition-delay: 350ms;
-    opacity: 1;
-  }
-  .toggle--label {
-  
-    width: 100px;
-    height: 50px;
-    background: var(--blue-color);
-    border-radius: 10px;
-    border: 5px solid var(--blue-border);
-    display: flex;
-    position: relative;
-    transition: all 350ms ease-in;
-    margin-right: 80px;
-  
-  }
-  .toggle--label-background {
-    width: 1px;
-    height: 5px;
-    border-radius: 5px;
-    position: relative;
-    background: var(--white);
-    left: 13px;
-    top: 5px;
-    transition: all 150ms ease-in;
-  }
-  .toggle--label-background:before {
-    content: "";
-    position: absolute;
-    top: -5px;
-    width: 10px;
-    height: 5px;
-    border-radius: 5px;
-    background: var(--white);
-    left: -20px;
-    transition: all 150ms ease-in;
-  }
-  .toggle--label-background:after {
-    content: "";
-    position: absolute;
-    top: 5px;
-    width: 10px;
-    height: 5px;
-    border-radius: 5px;
-    background: var(--white);
-    left: -10px;
-    transition: all 150ms ease-in;
-  }
-  .toggle--label:before {
-    animation-name: reverse;
-    animation-duration: 350ms;
-    animation-fill-mode: forwards;
-    transition: all 350ms ease-in;
-    content: "";
-    width: 8px;
-    height: 30px;
-    border: 5px solid var(--yellow-border);
-    top: 4px;
+@keyframes switch {
+  0% {
     left: 4px;
-    position: absolute;
-    border-radius: 8px;
-    background: var(--yellow-background);
   }
-  .toggle--label:after {
-    transition-delay: 0ms;
-    transition: all 250ms ease-in;
-    position: absolute;
-    content: "";
-    box-shadow: var(--gray-dots) -13px 0 0 2px, var(--gray-dots) -24px 14px 0 -2px;
-    left: 143px;
-    top: 23px;
-    width: 10px;
-    height: 5px;
-    background: transparent;
-    border-radius: 50%;
-    opacity: 0;
+  60% {
+    left: 4px;
+    width: 112px;
   }
-  
-  @keyframes switch {
-    0% {
-      left: 4px;
-    }
-    60% {
-      left: 4px;
-      width: 112px;
-    }
-    100% {
-      left: 104px;
-      width: 82px;
-    }
+  100% {
+    left: 104px;
+    width: 82px;
   }
-  @keyframes reverse {
-    0% {
-      left: 104px;
-      width: 82px;
-    }
-    60% {
-      left: 72px;
-      width: 112px;
-    }
-    100% {
-      left: 4px;
-    }
+}
+@keyframes reverse {
+  0% {
+    left: 104px;
+    width: 82px;
   }
+  60% {
+    left: 72px;
+    width: 112px;
+  }
+  100% {
+    left: 4px;
+  }
+}
