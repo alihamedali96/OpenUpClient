@@ -63,13 +63,15 @@ function createSection(data){
     const button3 = document.createElement('button')
     button3.className = 'likes button button3 clickme'
     button3.innerHTML = '&#11088;'
-    const button4 = document.createElement('button')
+    const button4 = document.createElement('div')
     button4.className = 'likes button button4 clickme'
-    button4.textContent = 'Total clicks:'
+    button4.textContent = 'Clicks'
     const counter = document.createElement('span')
     counter.id = 'counter'
     counter.textContent = data.interactions
+    const lineBreak = document.createElement('BR')
 
+    button4.appendChild(lineBreak)
     button4.appendChild(counter)
 
     btnGroup.appendChild(button4)
