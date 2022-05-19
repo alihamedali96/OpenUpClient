@@ -302,11 +302,7 @@ footer {
 
 
  .cardBody {
-    /* margin: 10px;
-    background-color: grey;
-    width: 30%;
-    height: 400px; */
-
+ 
     width: 50%;
     height: 1000%;
     cursor: default;
@@ -364,28 +360,15 @@ footer {
     height: 60px;
     display: flex;
     color: rgb(9, 9, 9);
-    
-
- 
 
 }
 
 
 
 .btn-group {
-
   
   font-size: 30px;
- 
-  
-  
-
-
-
 }
-
-
-
 
 
 .commentInput {
@@ -406,8 +389,6 @@ footer {
 
 
 
-
-
 .searchDiv{
     width: 50%;
     margin: 0 auto;
@@ -423,6 +404,9 @@ footer {
     margin-top: 20px;
 }
 
+
+
+/* cards */
 
   
 :root {
