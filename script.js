@@ -30,6 +30,7 @@ function createSection(data){
     formLabel.setAttribute('for', 'commentsSection')
 
     const textArea = document.createElement('textarea')
+    textArea.className = 'commentInput'
     textArea.setAttribute('name', 'commentsSection')
 
     const submit = document.createElement('input')

@@ -1,4 +1,67 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&family=Nunito:ital,wght@0,300;1,300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&family=Secular+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&family=Secular+One&display=swap');
+
+
+:root {
+  --jumbotron-padding-y: 3rem;
+}
+
+
+
+
+.jumbotron {
+  position: relative;
+  left: 0;
+  right: 0; 
+  text-align: center;
+  color: white;
+  display:flex;
+  justify-content: space-evenly;
+  flex-wrap:wrap;
+  font-family: 'Secular One', sans-serif;
+}
+#introTitle {
+  font-family: 'Domine', serif;
+  color: white;
+  font-weight: 900;
+  font-size: 20px;
+ 
+  
+
+}
+
+
+.p {
+    color: black;
+}
+
+
+ @media (min-width: 768px) {
+  .jumbotron {
+    padding-top: calc(var(--jumbotron-padding-y) * 2);
+    padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+  }
+}  
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+} 
+
+.jumbotron-heading {
+  font-weight: 300;
+} 
+
+  .jumbotron .container {
+  max-width: 40rem;
+} 
+
+
 footer {
     position: fixed;
     left: 0;
@@ -9,34 +72,114 @@ footer {
     text-align: center;
  }
 
-.flex-container {
-    background-color: aqua;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+ .flex-container {
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
+:root {
+--pmcolor: #f1f0f9;
+--sdcolor: #fefefe;
+--ttcolor: #2e2e2e;
+}
+
+
  .cardBody {
-    margin: 10px;
-    background-color: grey;
-    width: 30%;
-    height: 400px;
+  width: 50%;
+  height: auto;
+  cursor: default;
+  padding: 50px;
+  /* margin: 10px; */
+  overflow: auto;
+  border-radius: 0.25rem;
+  background-color:white;
+  transition: transform 0.3s ease-in-out;
+ 
+ 
+}
+
+.cardBody:hover {
+  transform: translateY(-0.5rem);
+}
+
+
+
+.gifIMG {
+  height: auto;
+  width: 100%;
+  display: block;
+  margin: 10px;
+ 
+}
+
+.cardTitle {
+  font-family: 'Domine', serif;
+  color: black;
+  font-weight: 900;
+  font-size: 50px;
+}
+
+
+.cardText {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  line-height: 1.25em;
+  height: 90px;
+  font-family: 'Nunito', sans-serif;
+  color: black;
+  display: inline;
+
 }
 
 .comments {
-    overflow: auto;
-    height: 60px;
+  
+  height: 60px;
+  display: flex;
+  color: rgb(9, 9, 9);
+
 }
+
+.btn-group {
+  
+  font-size: 15px;
+  display: inline;
+}
+
+
+.commentInput {
+ 
+  width:100%;
+  height:auto;
+  padding:10px;
+  border:1px solid black;
+  resize:none;
+  
+}
+
+
 .textArea {
-    width: 90%;
+  width: 100%;
+ 
 }
+
+
 
 .counter{
     width: 30px;
     text-align: center;
     background-color: blueviolet;
+  
+   
 }
+
+
+
+
 
 .button1 {
     background-color: #e7e7e7; 
