@@ -1,7 +1,7 @@
 const mainContainer = document.querySelector('.flex-container')
 
 function createSection(data){
-    //make div, ul and img
+    
     const cardBody = document.createElement('div')
     cardBody.className = 'cardBody'
     
@@ -16,26 +16,35 @@ function createSection(data){
     const cardImg = document.createElement('img')
     const linkToImage = data.img_url
     cardImg.setAttribute('src', linkToImage)
+    
+    if(data.img_url = 'undefined'){
+        cardImg.style.display = 'none'
+    }
 
     const comments = document.createElement('p')
     comments.className = 'comments'
     comments.textContent = data.comments
 
     const form = document.createElement('form')
-    form.action = 'PATCH'
+    form.className = 'commentForm'
+    form.id = data.id
 
     const formLabel = document.createElement('label')
     formLabel.setAttribute('for', 'commentsSection')
 
     const textArea = document.createElement('textarea')
     textArea.setAttribute('name', 'commentsSection')
+    textArea.id = `CommentText${data.id}`
 
     const submit = document.createElement('input')
     submit.setAttribute('type', 'submit')
     submit.setAttribute('value', 'Post comment')
+    submit.className = 'commentBtn'
     
     const btnGroup = document.createElement('div')
     btnGroup.className = 'btn-group'
+    btnGroup.id = data.id
+    
     const button1 = document.createElement('button')
     button1.className = 'likes button button1 clickme'
     button1.innerHTML = '&#128293;'
@@ -59,7 +68,6 @@ function createSection(data){
     btnGroup.appendChild(button2)
     btnGroup.appendChild(button3)
 
-    
     form.appendChild(formLabel)
     form.appendChild(textArea)
     form.appendChild(submit)
@@ -71,26 +79,91 @@ function createSection(data){
     cardBody.appendChild(comments)
     cardBody.appendChild(form)
 
-
-
     mainContainer.appendChild(cardBody)
 }
 
 async function getMyPosts(){
-    try{
-        const response = await fetch('http://localhost:3000/mypage/')
-        const data = await response.json()
-        data.forEach(e => createSection(e))
-        
-    }catch(err){
-        console.log('Something went wrong '+ err.message)
-    }
+  try{
+      const response = await fetch('http://localhost:3000/mypage/')
+      const data = await response.json()
+      data.forEach(e => createSection(e))
+      
+  }catch(err){
+      console.log('Something went wrong '+ err.message)
+  }
 }
 
 getMyPosts()
 
-let APIKEY = "VojEBdIRm1Nxx5fsMRNKtSchRO73Qv3q";
+const flexCont = document.querySelector('.flex-container')
 
+window.onload=function(){
+    const postCommentForm = document.querySelectorAll('.commentForm')
+    async function postComment(e) {
+        e.preventDefault();
+        const commentIdString = e.target.id
+        const commentId = parseInt(commentIdString)
+        const commentText = e.target.commentsSection
+        console.log(commentId)    
+        console.log(commentText.value)
+        try {
+          const newCommentData = {
+            id: commentId,
+            comments: commentText.value,
+          };
+          console.log(newCommentData)
+          const options = {
+            method: "PATCH",
+            body: JSON.stringify(newCommentData),
+            headers: {
+              "Content-Type": "application/json; charset=UTF-8",
+            },
+          };
+          const response = await fetch("http://localhost:3000/homepage/", options);
+          const data = await response.json();
+          console.log(data)
+          } catch (err) {
+            console.warn(err);
+          }
+      }
+    postCommentForm.forEach(item => {
+        item.addEventListener('submit', postComment)
+      })
+
+    const btn = document.querySelectorAll('.clickme')
+    async function addInteraction(e) {
+        e.preventDefault();
+        const buttonIdString = e.target.parentElement.id
+        const buttonId = parseInt(buttonIdString)
+        console.log(buttonId)
+        e.currentTarget.disabled = true
+        try {
+            const newInteractionData = {
+                        id: buttonId,
+                      }
+            console.log(newInteractionData)
+          const options = {
+            method: "PATCH",
+            body: JSON.stringify(newInteractionData),
+            headers: {
+              "Content-Type": "application/json; charset=UTF-8",
+            },          
+        }
+          const response = await fetch(`http://localhost:3000/posts/${buttonId}/`, options);
+          const data = await response.json();
+          console.log(data)
+          } catch (err) {
+            console.warn(err);
+          }
+      }
+      btn.forEach(item => {
+        item.addEventListener('click', addInteraction)
+      })
+
+    }
+
+
+let APIKEY = "VojEBdIRm1Nxx5fsMRNKtSchRO73Qv3q";
 
 document.addEventListener("DOMContentLoaded", init);
 function init() {
@@ -103,7 +176,6 @@ function init() {
     fetch(url)
       .then(response => response.json())
       .then(content => {
-        //  data, pagination, meta
         console.log(content.data);
         console.log("META", content.meta);
         let fig = document.createElement("figure");
@@ -111,7 +183,6 @@ function init() {
         img.src = content.data[0].images.downsized.url;
         img.alt = content.data[0].title;
         fig.appendChild(img);
-       
         let gif = document.querySelector(".gif");
         gif.insertAdjacentElement("afterbegin", fig);
         document.querySelector("#search").value = "";
@@ -120,47 +191,9 @@ function init() {
         console.error(err);
       });
   });
-  // getMyPosts()
 }
 
-
-
-
-
-// post request of form data to /mypage 
-
-
-// const onclick = (e) => {
-//   const data = {
-//     data: document.querySelector('input').value
-//   }
-
-
-//   e.preventDefault();
-
-//   fetch("/mypage", {
-//     method: 'POST',
-//     mode: 'no-cors',
-//     cache: 'no-cache',
-//     credentials: 'same-origin',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(data) // body data type must match "Content-Type" header
-//   });
-// }
-
-// const button = document.querySelector('#submit');
-
-// button.onclick = onclick;
-
-
-
-
-
-
 // function to post a new blog
-
 async function postBlog(e) {
   e.preventDefault();
   try {
@@ -187,51 +220,7 @@ async function postBlog(e) {
       console.warn(err);
     }
 }
-  // fetch("http://localhost:3000/mypage", options)
-  //   .then((r) => r.json())
-  //   .then(data => {
-  //     console.log(data)
-  // //     // getAllPosts()
-  //   })
-  //   .catch(console.warn);
-
-
-
-
-// async function postBlog(e) {
-//   e.preventDefault();
-//   try {
-//     const newBlogData = {
-//       id: "",
-//       title: document.getElementById("title").value,
-//       text: document.getElementById("textArea").value,
-//       image_url: document.getElementById("gif").value,
-//       isPublic: document.querySelector('input[name="isPublic"]:checked').value,
-//       interactions: "", 
-//       comments: "", 
-//     };
-
-//     const options = {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(newBlogData),
-//     };
-//     const response = await fetch("http://localhost:3000/mypage", options);
-//     const data = await response.json();
-//     return data;
-//   } catch (err) {
-//     console.warn(err);
-//   }
-// }
-
-
-// const form = document.getElementById("myForm");
-// const submitprivate = document.getElementById("submitprivate");
-
 const submit = document.getElementById('submit')
 
-
 submit.addEventListener("click", postBlog)
-// submitprivate.addEventListener("click", postBlog);
+
