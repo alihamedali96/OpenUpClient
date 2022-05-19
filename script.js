@@ -2,7 +2,7 @@
 const mainContainer = document.querySelector('.flex-container')
 
 function createSection(data){
-    //make div, ul and img
+    
     const cardBody = document.createElement('div')
     cardBody.className = 'cardBody'
     
@@ -101,49 +101,6 @@ async function getTopPosts(){
 getTopPosts()
 
 
-// const postCommentForm = document.querySelector('.commentBtn')
-
-
-// async function postComment(e) {
-//     e.preventDefault();
-//     try {
-//         const commentId = e.target.id
-//         comsole.log(commentId)
-//       const newCommentData = {
-//         id: `${commentId}`,
-//         comments: document.getElementById(`${commentId}`).value
-//       };
-//       const options = {
-//         method: "PATCH",
-//         body: JSON.stringify(newCommentData),
-//         headers: {
-//           "Content-Type": "application/json; charset=UTF-8",
-//         },
-//       };
-//       const response = await fetch("http://localhost:3000/homepage/", options);
-//       const data = await response.json();
-//       console.log(data)
-//       } catch (err) {
-//         console.warn(err);
-//       }
-//   }
-
-
-
-// postCommentForm.forEach(item => {
-//     item.addEventListener('click', (e) => {
-        
-//     e.preventDefault()
-//     console.log('hi')
-//     // const options = {
-//     // method: 'PATCH',
-//     // body: JSON.stringify({comments: "What a great day this was to make a new post"})
-//     // }
-//     // fetch("http://localhost:3000/homepage", options)
-//     // .then(console.log("Patched post"))
-//     // .catch(err => console.warn('Opa, something went wrong!', err)) 
-// })
-// })
 
 
 //Click counter      
@@ -183,6 +140,7 @@ window.onload=function(){
     async function postComment(e) {
         e.preventDefault();
         const commentId = e.target.id
+        //trying to get dynmamic id for textArea, but not working
             const commentBoxId = `CommentText${commentId}`
             const getElId = '"' + commentBoxId + '"'
             const commentBox = document.getElementById(getElId)
