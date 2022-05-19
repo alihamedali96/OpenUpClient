@@ -1,55 +1,193 @@
-/*  cards */
-
-
-
-
-
-
-
-
-
-
-
-/* cards */
-
-
+/*  For new cards*/
 
 .flex-container {
-    background-color: aqua;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
- .cardBody {
-    margin: 10px;
-    background-color: grey;
-    width: 30%;
-    height: 400px;
+:root {
+--pmcolor: #f1f0f9;
+--sdcolor: #fefefe;
+--ttcolor: #2e2e2e;
+}
+
+ .section {
+  background-color: grey;
+  color: var(--primary-color);
+  text-align: center;
+  padding: 15px;
+   }
+
+ .foot2 {
+  color: var(--primary-color);
+  text-decoration: none;
+ }
+
+
+
+
+
+ .flex-container {
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
+:root {
+--pmcolor: #f1f0f9;
+--sdcolor: #fefefe;
+--ttcolor: #2e2e2e;
+}
+
+
+.cardBody {
+
+  width: 45%;
+  height: auto;
+  cursor: default;
+  padding: 70px;
+  margin: 10px;
+  overflow: auto;
+  border-radius: 0.25rem;
+  background-color: rgb(165, 199, 247);
+  border: 1px solid #212121;
+
+
+}
+
+
+
+.gifIMG {
+height: auto;
+width: 100%;
+display: block;
+margin: 10px;
+}
+
+
+.cardTitle {
+font-family: 'Domine', serif;
+color: black;
+font-weight: 900;
+font-size: 30px;
+}
+
+
+.cardText {
+
+padding: 15px;
+font-size: 20px;
+
+line-height: 1.25em;
+height: auto;
+font-family: 'Nunito', sans-serif;
+color: black;
+display: block;
+
+
 }
 
 .comments {
-    overflow: auto;
-    height: 60px;
-}
-.textArea {
-    width: 90%;
+
+  height: 60px;
+  display: flex;
+  color: rgb(9, 9, 9);
+
 }
 
-.searchDiv{
+
+
+.btn-group {
+
+font-size: 20px;
+}
+
+
+.commentInput {
+
+width:100%;
+height:auto;
+padding:10px;
+border:1px solid black;
+resize:none;
+
+}
+
+.textArea {
+  width: 100%;
+ 
+}
+
+
+
+.counter{
+    width: 30px;
+    text-align: center;
+    background-color: blueviolet;
+  
+   
+}
+
+
+
+
+
+.button1 {
+    background-color: #e7e7e7; 
+    width: 25%;
+        }  
+
+.button2 {
+    background-color: #e7e7e7; 
+    color: black;
+    width: 25%;
+} 
+
+.button3 {
+    background-color: #e7e7e7; 
+    width: 25%;
+
+} 
+.button4 {
+    background-color: #eceaea;
     width: 50%;
-    margin: 0 auto;
+
+} 
+
+.button5 {
+    background-color: #eceaea;
+    width: 100%;
+
+} 
+
+div.ex1 {
+    height: 200px;
+    width: 100%;
+    overflow-y: scroll;
+  }
+
+
+
+
+.searchDiv{
+  width: 50%;
+  margin: 0 auto;
 }
 .newSearchDiv{
-    width: 50%;
-    margin: 0 auto;
-    text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .newSearch{
-    width: 40%;
-    margin-top: 20px;
+  width: 40%;
+  margin-top: 20px;
 }
 
 

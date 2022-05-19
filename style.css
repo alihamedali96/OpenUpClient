@@ -146,80 +146,93 @@ footer {
 
 
 
+ .flex-container {
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
 
- .cardBody {
+:root {
+--pmcolor: #f1f0f9;
+--sdcolor: #fefefe;
+--ttcolor: #2e2e2e;
+}
+
+
+.cardBody {
+
   width: 50%;
   height: auto;
   cursor: default;
-  padding: 50px;
+  padding: 70px;
   /* margin: 10px; */
   overflow: auto;
   border-radius: 0.25rem;
-  background-color:white;
-  transition: transform 0.3s ease-in-out;
- 
- 
-}
+  background-color: white;
 
-.cardBody:hover {
-  transform: translateY(-0.5rem);
+
 }
 
 
 
 .gifIMG {
-  height: auto;
-  width: 100%;
-  display: block;
-  margin: 10px;
- 
+height: auto;
+width: 100%;
+display: block;
+margin: 10px;
 }
 
+
 .cardTitle {
-  font-family: 'Domine', serif;
-  color: black;
-  font-weight: 900;
-  font-size: 50px;
+font-family: 'Domine', serif;
+color: black;
+font-weight: 900;
+font-size: 30px;
 }
 
 
 .cardText {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 20px;
-  margin-bottom: 20px;
-  line-height: 1.25em;
-  height: 90px;
-  font-family: 'Nunito', sans-serif;
-  color: black;
-  display: inline;
+
+padding: 15px;
+font-size: 20px;
+
+line-height: 1.25em;
+height: auto;
+font-family: 'Nunito', sans-serif;
+color: black;
+display: block;
+
+
 }
 
 .comments {
-  
+
   height: 60px;
   display: flex;
   color: rgb(9, 9, 9);
 
 }
 
+
+
 .btn-group {
-  
-  font-size: 15px;
-  display: inline;
+
+font-size: 20px;
 }
 
 
 .commentInput {
- 
-  width:100%;
-  height:auto;
-  padding:10px;
-  border:1px solid black;
-  resize:none;
-  
-}
 
+width:100%;
+height:auto;
+padding:10px;
+border:1px solid black;
+resize:none;
+
+}
 
 .textArea {
   width: 100%;
