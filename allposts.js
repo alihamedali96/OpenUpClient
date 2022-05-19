@@ -129,6 +129,7 @@ getAllPosts()
 function refreshPage(){
     window.location.reload();
 } 
+<<<<<<< HEAD
 const newSearchBtn = document.querySelector('.newSearch')
 newSearchBtn.addEventListener('click', refreshPage)
 
@@ -196,3 +197,33 @@ window.onload=function(){
             item.addEventListener('click', addInteraction)
         })
     }
+=======
+
+// function to get all the posts
+
+async function getData() {
+    const response = await fetch(`http://localhost:3000/allposts`)
+    const data = response.json();
+    console.log(data);
+    return data;
+  }
+  
+  getData()
+
+
+
+
+///////DARK MODE/////////
+
+
+let icon = document.getElementById("icon");
+
+document.getElementById("icon").onclick = function (){
+  document.body.classList.toggle("dark-theme");
+  if (document.body.classList.contains("dark-theme")){
+    icon.src = "images/sun.png"
+  } else {
+    icon.src = "images/moon.png"
+  }
+}
+>>>>>>> main

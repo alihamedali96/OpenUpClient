@@ -8,12 +8,13 @@ function createSection(data){
     const cardTitle = document.createElement('h5')
     cardTitle.className = 'cardTitle'
     cardTitle.textContent = data.title
-
+    
     const cardText = document.createElement('p')
     cardText.className = 'cardText'
     cardText.textContent = data.text
-
+    
     const cardImg = document.createElement('img')
+    cardImg.className = 'gifIMG'
     const linkToImage = data.img_url
     cardImg.setAttribute('src', linkToImage)
     
@@ -33,10 +34,12 @@ function createSection(data){
     formLabel.setAttribute('for', 'commentsSection')
 
     const textArea = document.createElement('textarea')
+    textArea.className = 'commentInput'
     textArea.setAttribute('name', 'commentsSection')
     textArea.id = `CommentText${data.id}`
 
     const submit = document.createElement('input')
+    submit.className = 'commentInput'
     submit.setAttribute('type', 'submit')
     submit.setAttribute('value', 'Post comment')
     submit.className = 'commentBtn'
@@ -224,3 +227,15 @@ const submit = document.getElementById('submit')
 
 submit.addEventListener("click", postBlog)
 
+///////DARK MODE/////////
+
+let icon = document.getElementById("icon");
+
+document.getElementById("icon").onclick = function (){
+  document.body.classList.toggle("dark-theme");
+  if (document.body.classList.contains("dark-theme")){
+    icon.src = "images/sun.png"
+  } else {
+    icon.src = "images/moon.png"
+  }
+}

@@ -33,6 +33,7 @@ function createSection(data){
     formLabel.setAttribute('for', 'commentsSection')
 
     const textArea = document.createElement('textarea')
+    textArea.className = 'commentInput'
     textArea.setAttribute('name', 'commentsSection')
     textArea.id = `CommentText${data.id}`
 
@@ -158,5 +159,20 @@ window.onload=function(){
             item.addEventListener('click', addInteraction)
         })
 
+
     }
     
+
+///////DARK MODE/////////
+
+
+let icon = document.getElementById("icon");
+
+document.getElementById("icon").onclick = function (){
+  document.body.classList.toggle("dark-theme");
+  if (document.body.classList.contains("dark-theme")){
+    icon.src = "images/sun.png"
+  } else {
+    icon.src = "images/moon.png"
+  }
+}
