@@ -116,7 +116,7 @@ searchBtn.addEventListener('click', (e)=>{
 
 async function getAllPosts(){
     try{
-        const response = await fetch('http://localhost:3000/allposts/')
+        const response = await fetch('https://fierce-plateau-94232.herokuapp.com/allposts/')
         data = await response.json()
         data.forEach(e => createSection(e))
     }catch(err){
@@ -129,7 +129,7 @@ getAllPosts()
 function refreshPage(){
     window.location.reload();
 } 
-<<<<<<< HEAD
+
 const newSearchBtn = document.querySelector('.newSearch')
 newSearchBtn.addEventListener('click', refreshPage)
 
@@ -155,7 +155,7 @@ window.onload=function(){
                 "Content-Type": "application/json; charset=UTF-8",
             },
             };
-            const response = await fetch("http://localhost:3000/homepage/", options);
+            const response = await fetch("https://fierce-plateau-94232.herokuapp.com/homepage/", options);
             const data = await response.json();
             console.log(data)
             } catch (err) {
@@ -186,7 +186,7 @@ window.onload=function(){
                 "Content-Type": "application/json; charset=UTF-8",
             },          
         }
-            const response = await fetch(`http://localhost:3000/posts/${buttonId}/`, options);
+            const response = await fetch(`https://fierce-plateau-94232.herokuapp.com/posts/${buttonId}/`, options);
             const data = await response.json();
             console.log(data)
             } catch (err) {
@@ -197,20 +197,6 @@ window.onload=function(){
             item.addEventListener('click', addInteraction)
         })
     }
-=======
-
-// function to get all the posts
-
-async function getData() {
-    const response = await fetch(`http://localhost:3000/allposts`)
-    const data = response.json();
-    console.log(data);
-    return data;
-  }
-  
-  getData()
-
-
 
 
 ///////DARK MODE/////////
@@ -226,4 +212,4 @@ document.getElementById("icon").onclick = function (){
     icon.src = "images/moon.png"
   }
 }
->>>>>>> main
+

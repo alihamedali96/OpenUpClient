@@ -87,7 +87,7 @@ function createSection(data){
 
 async function getMyPosts(){
   try{
-      const response = await fetch('http://localhost:3000/mypage/')
+      const response = await fetch('https://fierce-plateau-94232.herokuapp.com/mypage/')
       const data = await response.json()
       data.forEach(e => createSection(e))
       
@@ -122,7 +122,7 @@ window.onload=function(){
               "Content-Type": "application/json; charset=UTF-8",
             },
           };
-          const response = await fetch("http://localhost:3000/homepage/", options);
+          const response = await fetch("https://fierce-plateau-94232.herokuapp.com/homepage/", options);
           const data = await response.json();
           console.log(data)
           } catch (err) {
@@ -152,7 +152,7 @@ window.onload=function(){
               "Content-Type": "application/json; charset=UTF-8",
             },          
         }
-          const response = await fetch(`http://localhost:3000/posts/${buttonId}/`, options);
+          const response = await fetch(`https://fierce-plateau-94232.herokuapp.com/posts/${buttonId}/`, options);
           const data = await response.json();
           console.log(data)
           } catch (err) {
@@ -216,7 +216,7 @@ async function postBlog(e) {
         "Content-Type": "application/json; charset=UTF-8",
       },
     };
-    const response = await fetch("http://localhost:3000/mypage/", options);
+    const response = await fetch("https://fierce-plateau-94232.herokuapp.com/mypage/", options);
     const data = await response.json();
     console.log(data)
     } catch (err) {
