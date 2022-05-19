@@ -55,7 +55,7 @@ function createSection(data){
     button2.innerHTML = '&#128151;'
     const button3 = document.createElement('button')
     button3.className = 'likes button button3 clickme'
-    button3.innerHTML = '&#128078;'
+    button3.innerHTML = '&#11088;'
     const button4 = document.createElement('button')
     button4.className = 'likes button button4 clickme'
     button4.textContent = 'Total clicks:'
