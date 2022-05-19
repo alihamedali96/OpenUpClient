@@ -21,9 +21,14 @@ function createSection(data){
         cardImg.style.display = 'none'
     }
 
-    const comments = document.createElement('p')
-    comments.className = 'comments'
-    comments.textContent = data.comments
+    const commentsArea = document.createElement('p')
+    commentsArea.className = 'comments'
+    for(let i = 0; i < data.comments.length; i++){
+        const comment = document.createElement('p')
+        comment.textContent = data.comments[i]
+        commentsArea.appendChild(comment)
+    }
+
 
     const form = document.createElement('form')
     form.className = 'commentForm'
@@ -78,7 +83,7 @@ function createSection(data){
     cardBody.appendChild(cardText)
     cardBody.appendChild(cardImg)
     cardBody.appendChild(btnGroup)
-    cardBody.appendChild(comments)
+    cardBody.appendChild(commentsArea)
     cardBody.appendChild(form)
 
 
