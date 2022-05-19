@@ -8,12 +8,13 @@ function createSection(data){
     const cardTitle = document.createElement('h5')
     cardTitle.className = 'cardTitle'
     cardTitle.textContent = data.title
-
+    
     const cardText = document.createElement('p')
     cardText.className = 'cardText'
     cardText.textContent = data.text
-
+    
     const cardImg = document.createElement('img')
+    cardImg.className = 'gifIMG'
     const linkToImage = data.img_url
     cardImg.setAttribute('src', linkToImage)
 
@@ -28,9 +29,11 @@ function createSection(data){
     formLabel.setAttribute('for', 'commentsSection')
 
     const textArea = document.createElement('textarea')
+    textArea.className = 'commentInput'
     textArea.setAttribute('name', 'commentsSection')
 
     const submit = document.createElement('input')
+    submit.className = 'commentInput'
     submit.setAttribute('type', 'submit')
     submit.setAttribute('value', 'Post comment')
     
