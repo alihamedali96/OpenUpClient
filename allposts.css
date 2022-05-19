@@ -369,8 +369,16 @@ footer {
   bottom: 0;
   width: 100%;
   background-color: grey;
-  color: var(--primary-color);
+  color: var(--pmcolor);
   text-align: center;
+  padding-top: 10px;
+}
+
+.nameLink {
+text-decoration: none;
+color: var(--pmcolor);
+padding-right: 5px;
+padding-left: 5px;
 }
 .section {
   background-color: grey;
