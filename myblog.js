@@ -219,6 +219,8 @@ async function postBlog(e) {
     const response = await fetch("https://fierce-plateau-94232.herokuapp.com/mypage/", options);
     const data = await response.json();
     console.log(data)
+    document.getElementById("title").value = ''
+    document.getElementById("textArea").value = ''
     } catch (err) {
       console.warn(err);
     }
