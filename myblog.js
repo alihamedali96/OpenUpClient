@@ -221,6 +221,7 @@ async function postBlog(e) {
     console.log(data)
     document.getElementById("title").value = ''
     document.getElementById("textArea").value = ''
+    alert("Your blog has been posted!")
     } catch (err) {
       console.warn(err);
     }
