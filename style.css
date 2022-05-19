@@ -1,3 +1,45 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--primary-color);
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: var(--secondary-color);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+#icon{
+  width: 30px;
+  cursor: pointer;
+  margin: 4px;
+}
+
+/* Dark Mode - we create css variables and add the in the place of color code */
+:root{
+  --primary-color: gainsboro;
+  --secondary-color: #212121;
+}
+
+
+.dark-theme{
+  --primary-color: #212121;
+  --secondary-color: gainsboro;
+}
+
+body {
+  background-color: var(--primary-color);
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&display=swap');
 
@@ -67,8 +109,8 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: gainsboro;
-    color: black;
+    background-color: grey;
+    color: var(--primary-color);
     text-align: center;
  }
 
@@ -84,6 +126,22 @@ footer {
 --pmcolor: #f1f0f9;
 --sdcolor: #fefefe;
 --ttcolor: #2e2e2e;
+=======
+
+ .section {
+  background-color: grey;
+  color: var(--primary-color);
+  text-align: center;
+  padding: 15px;
+   }
+
+ .foot2 {
+  color: var(--primary-color);
+  text-decoration: none;
+ }
+
+
+
 }
 
 
