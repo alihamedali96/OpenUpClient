@@ -140,29 +140,16 @@ async function getData() {
 
 
 
-  ///////DARK MODE/////////
+///////DARK MODE/////////
 
-const about = document.getElementById("aboutLink");
-const darkmode = document.getElementById("darkLink");
-let CheckDarkOn = false;
 
-darkmode.addEventListener("click", swicthColours);
+let icon = document.getElementById("icon");
 
-function swicthColours(e) {
-  console.log("dark mode clicked");
-  console.log(CheckDarkOn);
-  e.preventDefault();
-  let mainbody = document.querySelector("body");
-  //   mainbody.style.backgroundColor = "rgb(39, 39, 39)";
-  //   mainbody.style.color = "white";
-
-  if (CheckDarkOn === false) {
-    mainbody.style.backgroundColor = "rgb(39, 39, 39)";
-    mainbody.style.color = "white";
-    CheckDarkOn = true;
+document.getElementById("icon").onclick = function (){
+  document.body.classList.toggle("dark-theme");
+  if (document.body.classList.contains("dark-theme")){
+    icon.src = "images/sun.png"
   } else {
-    mainbody.style.backgroundColor = "white";
-    mainbody.style.color = "black";
-    CheckDarkOn = false;
+    icon.src = "images/moon.png"
   }
 }
