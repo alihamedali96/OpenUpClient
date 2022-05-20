@@ -281,6 +281,10 @@ input {
 .comments > p{
   width: 100%;
   margin-top: 20px;
+  background-color: rgb(216, 238, 245);
+  height: 60px;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .btn-group {

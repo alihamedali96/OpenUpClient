@@ -15,12 +15,13 @@ function createSection(data){
     
     const cardImg = document.createElement('img')
     cardImg.className = 'gifIMG'
-    const linkToImage = data.img_url
+    const linkToImage = data.image_url
+    console.log(data.image_url)
     cardImg.setAttribute('src', linkToImage)
     
-    if(data.img_url = 'undefined'){
+    if(!data.image_url){
         cardImg.style.display = 'none'
-    }
+    } 
 
     const commentsArea = document.createElement('p')
     commentsArea.className = 'comments'
@@ -180,15 +181,20 @@ function init() {
     let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
     let str = document.getElementById("search").value.trim();
     url = url.concat(str);
-    console.log(url);
+    // console.log(url);
     fetch(url)
       .then(response => response.json())
       .then(content => {
-        console.log(content.data);
-        console.log("META", content.meta);
+        // console.log(content.data);
+        // console.log("META", content.meta);
         const img = document.createElement("img");
         img.src = content.data[0].images.downsized.url;
+        console.log(content.data[0].id)
         img.alt = content.data[0].title;
+        img.id = "gifSearchImage"
+        const gifSource = 'https://i.giphy.com/media/' + content.data[0].id + '/giphy.webp'
+        console.log(gifSource)
+        img.className = gifSource
         const gifArea = document.getElementById('gif')
         gifArea.appendChild(img)
         document.querySelector("#search").value = "";
@@ -202,12 +208,14 @@ function init() {
 // function to post a new blog
 async function postBlog(e) {
   e.preventDefault();
+  const gifSearchImage = document.getElementById('gifSearchImage')
+  console.log(gifSearchImage.className)
   try {
     const newBlogData = {
       id: "",
       title: document.getElementById("title").value,
       text: document.getElementById("textArea").value,
-      image_url: document.getElementById("gif").value,
+      image_url: gifSearchImage.className,
       isPublic: document.querySelector('input[name="isPublic"]:checked').value,
       interactions: 0, 
       comments: ""

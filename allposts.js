@@ -15,12 +15,13 @@ function createSection(data){
     
     const cardImg = document.createElement('img')
     cardImg.className = 'gifIMG'
-    const linkToImage = data.img_url
+    const linkToImage = data.image_url
+    console.log(data.image_url)
     cardImg.setAttribute('src', linkToImage)
     
-    if(data.img_url = 'undefined'){
+    if(!data.image_url){
         cardImg.style.display = 'none'
-    }
+    } 
 
     const commentsArea = document.createElement('p')
     commentsArea.className = 'comments'

@@ -219,6 +219,8 @@ footer {
   margin-top: 20px;
   background-color: rgb(233, 194, 200);
   height: 60px;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .btn-group {

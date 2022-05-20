@@ -120,6 +120,10 @@
 .comments > p{
   width: 100%;
   margin-top: 20px;
+  background-color: rgb(214, 199, 227);
+  height: 60px;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .btn-group {
