@@ -226,6 +226,11 @@ input {
   background-color: rgb(178, 213, 224);
 }
 
+a >.foot2 {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
 .cardBody:hover {
   transform: translateY(-0.5rem);
 }
