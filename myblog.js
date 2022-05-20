@@ -130,6 +130,8 @@ window.onload=function(){
           };
           const response = await fetch("https://fierce-plateau-94232.herokuapp.com/homepage/", options);
           const data = await response.json();
+          e.target.commentsSection = ''
+          alert('Your comment has been posted!')
           console.log(data)
           } catch (err) {
             console.warn(err);
