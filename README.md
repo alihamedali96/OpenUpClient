@@ -30,7 +30,7 @@
 <!-- ABOUT THE PROJECT -->
 # About The Project
 
-OpenUp is an anonymous blogging site where anyone can go and post X character entries with an optional gif. There are also three emoji reactions to existing posts. 
+OpenUp is an anonymous blogging site where anyone can go and post 200 character entries with an optional gif. There are also three emoji reactions to existing posts. 
 
 ### Remote Hosting
 The site is hosted [here](https://openup-fp.netlify.app/) on Netlify
