@@ -121,13 +121,13 @@ Test:
 
 
 ### Homepage
-![image](screenshot)
+![image](images/homepage.png)
 
 ### All posts page - see lates posts 
-![image](.png)
+![image](images/allposts.png)
 
 ### My blog page - to post 
-![image](screensot)
+![image](images/myblog.png)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
