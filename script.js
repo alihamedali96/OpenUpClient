@@ -1,8 +1,7 @@
-// const form = document.getElementById('form')
 const mainContainer = document.querySelector('.flex-container')
 
 function createSection(data){
-    //make div, ul and img
+    
     const cardBody = document.createElement('div')
     cardBody.className = 'cardBody'
     
@@ -17,46 +16,65 @@ function createSection(data){
     const cardImg = document.createElement('img')
     const linkToImage = data.img_url
     cardImg.setAttribute('src', linkToImage)
+    
+    if(data.img_url = 'undefined'){
+        cardImg.style.display = 'none'
+    }
 
-    const comments = document.createElement('p')
-    comments.className = 'comments'
-    comments.textContent = data.comments
+    const commentsArea = document.createElement('p')
+    commentsArea.className = 'comments'
+    for(let i = 0; i < data.comments.length; i++){
+        const comment = document.createElement('p')
+        comment.textContent = data.comments[i]
+        commentsArea.appendChild(comment)
+    }
 
     const form = document.createElement('form')
-    // form.action = 'PATCH'
     form.className = 'commentForm'
+    form.id = data.id
 
     const formLabel = document.createElement('label')
     formLabel.setAttribute('for', 'commentsSection')
 
     const textArea = document.createElement('textarea')
+    textArea.className = 'commentInput'
     textArea.setAttribute('name', 'commentsSection')
+    textArea.id = `CommentText${data.id}`
 
     const submit = document.createElement('input')
     submit.setAttribute('type', 'submit')
     submit.setAttribute('value', 'Post comment')
     submit.className = 'commentBtn'
     
+    
     const btnGroup = document.createElement('div')
     btnGroup.className = 'btn-group'
-    const counter = document.createElement('div')
-    counter.className = 'counter'
-    counter.textContent = data.interactions
+    btnGroup.id = data.id
+    
     const button1 = document.createElement('button')
-    button1.className = 'likes button button1'
+    button1.className = 'likes button button1 clickme'
     button1.innerHTML = '&#128293;'
     const button2 = document.createElement('button')
-    button2.className = 'likes button button2'
+    button2.className = 'likes button button2 clickme'
     button2.innerHTML = '&#128151;'
     const button3 = document.createElement('button')
-    button3.className = 'likes button button3'
-    button3.innerHTML = '&#128078;'
+    button3.className = 'likes button button3 clickme'
+    button3.innerHTML = '&#11088;'
+    const button4 = document.createElement('div')
+    button4.className = 'likes button button4'
+    button4.textContent = 'Clicks'
+    const counter = document.createElement('span')
+    counter.id = 'counter'
+    counter.textContent = data.interactions
+    const lineBreak = document.createElement('BR')
 
-    btnGroup.appendChild(counter)
+    button4.appendChild(lineBreak)
+    button4.appendChild(counter)
+
+    btnGroup.appendChild(button4)
     btnGroup.appendChild(button1)
     btnGroup.appendChild(button2)
     btnGroup.appendChild(button3)
-
     
     form.appendChild(formLabel)
     form.appendChild(textArea)
@@ -66,17 +84,15 @@ function createSection(data){
     cardBody.appendChild(cardText)
     cardBody.appendChild(cardImg)
     cardBody.appendChild(btnGroup)
-    cardBody.appendChild(comments)
+    cardBody.appendChild(commentsArea)
     cardBody.appendChild(form)
-
-
 
     mainContainer.appendChild(cardBody)
 }
 
 async function getTopPosts(){
     try{
-        const response = await fetch('http://localhost:3000/homepage/')
+        const response = await fetch('https://fierce-plateau-94232.herokuapp.com/homepage/')
         const data = await response.json()
         data.forEach(e => createSection(e))
         
@@ -87,68 +103,84 @@ async function getTopPosts(){
 
 getTopPosts()
 
+const flexCont = document.querySelector('.flex-container')
 
-const postCommentForm = document.querySelectorAll('.commentBtn')
+window.onload=function(){
+    const postCommentForm = document.querySelectorAll('.commentForm')
+    async function postComment(e) {
+        e.preventDefault();
+        const commentIdString = e.target.id
+        const commentId = parseInt(commentIdString)
+        const commentText = e.target.commentsSection
+        try {
+            const newCommentData = {
+                id: commentId,
+                comments: commentText.value,
+            };
+            const options = {
+                method: "PATCH",
+                body: JSON.stringify(newCommentData),
+                headers: {
+                "Content-Type": "application/json; charset=UTF-8",
+                },
+            };
+            const response = await fetch("https://fierce-plateau-94232.herokuapp.com/homepage/", options);
+            const data = await response.json();
+            e.target.commentsSection.value = ''
+            alert('Your comment has been posted!')
+            console.log(data)
+            } catch (err) {
+                console.warn(err);
+            }
+        }
+    postCommentForm.forEach(item => {
+        item.addEventListener('submit', postComment)
+        })
 
-postCommentForm.forEach(item => {
-    item.addEventListener('click', (e) => {
-        
-    e.preventDefault()
-    console.log(e)
-    // const options = {
-    // method: 'PATCH',
-    // body: JSON.stringify({comments: "What a great day this was to make a new post"})
-    // }
-    // fetch("http://localhost:3000/homepage", options)
-    // .then(console.log("Patched post"))
-    // .catch(err => console.warn('Opa, something went wrong!', err)) 
-})
-})
+    const btn = document.querySelectorAll('.clickme')
+    async function addInteraction(e) {
+        e.preventDefault();
+        const buttonIdString = e.target.parentElement.id
+        const buttonId = parseInt(buttonIdString)
+        console.log(buttonId)
+        e.currentTarget.disabled = true
+        try {
+            const newInteractionData = {
+                        id: buttonId,
+                        }
+            console.log(newInteractionData)
+            const options = {
+                method: "PATCH",
+                body: JSON.stringify(newInteractionData),
+                headers: {
+                "Content-Type": "application/json; charset=UTF-8",
+            },          
+        }
+            const response = await fetch(`https://fierce-plateau-94232.herokuapp.com/posts/${buttonId}/`, options);
+            const data = await response.json();
+            console.log(data)
+            } catch (err) {
+                console.warn(err);
+            }
+        }
+        btn.forEach(item => {
+            item.addEventListener('click', addInteraction)
+        })
 
 
-//Click counter      
-
-        //BUTTON COUNTER + Disable after clicking
-        const ELS_button = document.querySelectorAll(".clickme");
-        const EL_counter = document.querySelector("#counter");
-        let count = 0;
-
-  const incrementCount = (ev) => {
-  count += 1;
-  ev.currentTarget.disabled = true; // make button disabled
-  EL_counter.textContent = count;
-};
-
-ELS_button.forEach(el => {
-  el.addEventListener("click", incrementCount);
-});
-   
-
-
+    }
+    
 
 ///////DARK MODE/////////
 
-const about = document.getElementById("aboutLink");
-const darkmode = document.getElementById("darkLink");
-let CheckDarkOn = false;
 
-darkmode.addEventListener("click", swicthColours);
+let icon = document.getElementById("icon");
 
-function swicthColours(e) {
-  console.log("dark mode clicked");
-  console.log(CheckDarkOn);
-  e.preventDefault();
-  let mainbody = document.querySelector("body");
-  //   mainbody.style.backgroundColor = "rgb(39, 39, 39)";
-  //   mainbody.style.color = "white";
-
-  if (CheckDarkOn === false) {
-    mainbody.style.backgroundColor = "rgb(39, 39, 39)";
-    mainbody.style.color = "white";
-    CheckDarkOn = true;
+document.getElementById("icon").onclick = function (){
+  document.body.classList.toggle("dark-theme");
+  if (document.body.classList.contains("dark-theme")){
+    icon.src = "images/sun.png"
   } else {
-    mainbody.style.backgroundColor = "white";
-    mainbody.style.color = "black";
-    CheckDarkOn = false;
+    icon.src = "images/moon.png"
   }
 }

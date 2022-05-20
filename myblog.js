@@ -1,60 +1,82 @@
 const mainContainer = document.querySelector('.flex-container')
 
 function createSection(data){
-    //make div, ul and img
+    
     const cardBody = document.createElement('div')
     cardBody.className = 'cardBody'
     
     const cardTitle = document.createElement('h5')
     cardTitle.className = 'cardTitle'
     cardTitle.textContent = data.title
-
+    
     const cardText = document.createElement('p')
     cardText.className = 'cardText'
     cardText.textContent = data.text
-
+    
     const cardImg = document.createElement('img')
+    cardImg.className = 'gifIMG'
     const linkToImage = data.img_url
     cardImg.setAttribute('src', linkToImage)
+    
+    if(data.img_url = 'undefined'){
+        cardImg.style.display = 'none'
+    }
 
-    const comments = document.createElement('p')
-    comments.className = 'comments'
-    comments.textContent = data.comments
+    const commentsArea = document.createElement('p')
+    commentsArea.className = 'comments'
+    for(let i = 0; i < data.comments.length; i++){
+        const comment = document.createElement('p')
+        comment.textContent = data.comments[i]
+        commentsArea.appendChild(comment)
+    }
 
     const form = document.createElement('form')
-    form.action = 'PATCH'
+    form.className = 'commentForm'
+    form.id = data.id
 
     const formLabel = document.createElement('label')
     formLabel.setAttribute('for', 'commentsSection')
 
     const textArea = document.createElement('textarea')
+    textArea.className = 'commentInput'
     textArea.setAttribute('name', 'commentsSection')
+    textArea.id = `CommentText${data.id}`
 
     const submit = document.createElement('input')
+    submit.className = 'commentInput'
     submit.setAttribute('type', 'submit')
     submit.setAttribute('value', 'Post comment')
+    submit.className = 'commentBtn'
     
     const btnGroup = document.createElement('div')
     btnGroup.className = 'btn-group'
-    const counter = document.createElement('div')
-    counter.className = 'counter'
-    counter.textContent = data.interactions
+    btnGroup.id = data.id
+    
     const button1 = document.createElement('button')
-    button1.className = 'likes button button1'
+    button1.className = 'likes button button1 clickme'
     button1.innerHTML = '&#128293;'
     const button2 = document.createElement('button')
-    button2.className = 'likes button button2'
+    button2.className = 'likes button button2 clickme'
     button2.innerHTML = '&#128151;'
     const button3 = document.createElement('button')
-    button3.className = 'likes button button3'
-    button3.innerHTML = '&#128078;'
+    button3.className = 'likes button button3 clickme'
+    button3.innerHTML = '&#11088;'
+    const button4 = document.createElement('div')
+    button4.className = 'likes button button4'
+    button4.textContent = 'Clicks'
+    const counter = document.createElement('span')
+    counter.id = 'counter'
+    counter.textContent = data.interactions
+    const lineBreak = document.createElement('BR')
 
-    btnGroup.appendChild(counter)
+    button4.appendChild(lineBreak)
+    button4.appendChild(counter)
+
+    btnGroup.appendChild(button4)
     btnGroup.appendChild(button1)
     btnGroup.appendChild(button2)
     btnGroup.appendChild(button3)
 
-    
     form.appendChild(formLabel)
     form.appendChild(textArea)
     form.appendChild(submit)
@@ -63,29 +85,96 @@ function createSection(data){
     cardBody.appendChild(cardText)
     cardBody.appendChild(cardImg)
     cardBody.appendChild(btnGroup)
-    cardBody.appendChild(comments)
+    cardBody.appendChild(commentsArea)
     cardBody.appendChild(form)
-
-
 
     mainContainer.appendChild(cardBody)
 }
 
 async function getMyPosts(){
-    try{
-        const response = await fetch('http://localhost:3000/mypage/')
-        const data = await response.json()
-        data.forEach(e => createSection(e))
-        
-    }catch(err){
-        console.log('Something went wrong '+ err.message)
-    }
+  try{
+      const response = await fetch('https://fierce-plateau-94232.herokuapp.com/mypage/')
+      const data = await response.json()
+      data.forEach(e => createSection(e))
+      
+  }catch(err){
+      console.log('Something went wrong '+ err.message)
+  }
 }
 
 getMyPosts()
 
-let APIKEY = "VojEBdIRm1Nxx5fsMRNKtSchRO73Qv3q";
+const flexCont = document.querySelector('.flex-container')
 
+window.onload=function(){
+    const postCommentForm = document.querySelectorAll('.commentForm')
+    async function postComment(e) {
+        e.preventDefault();
+        const commentIdString = e.target.id
+        const commentId = parseInt(commentIdString)
+        const commentText = e.target.commentsSection
+        console.log(commentId)    
+        console.log(commentText.value)
+        try {
+          const newCommentData = {
+            id: commentId,
+            comments: commentText.value,
+          };
+          console.log(newCommentData)
+          const options = {
+            method: "PATCH",
+            body: JSON.stringify(newCommentData),
+            headers: {
+              "Content-Type": "application/json; charset=UTF-8",
+            },
+          };
+          const response = await fetch("https://fierce-plateau-94232.herokuapp.com/homepage/", options);
+          const data = await response.json();
+          e.target.commentsSection = ''
+          alert('Your comment has been posted!')
+          console.log(data)
+          } catch (err) {
+            console.warn(err);
+          }
+      }
+    postCommentForm.forEach(item => {
+        item.addEventListener('submit', postComment)
+      })
+
+    const btn = document.querySelectorAll('.clickme')
+    async function addInteraction(e) {
+        e.preventDefault();
+        const buttonIdString = e.target.parentElement.id
+        const buttonId = parseInt(buttonIdString)
+        console.log(buttonId)
+        e.currentTarget.disabled = true
+        try {
+            const newInteractionData = {
+                        id: buttonId,
+                      }
+            console.log(newInteractionData)
+          const options = {
+            method: "PATCH",
+            body: JSON.stringify(newInteractionData),
+            headers: {
+              "Content-Type": "application/json; charset=UTF-8",
+            },          
+        }
+          const response = await fetch(`https://fierce-plateau-94232.herokuapp.com/posts/${buttonId}/`, options);
+          const data = await response.json();
+          console.log(data)
+          } catch (err) {
+            console.warn(err);
+          }
+      }
+      btn.forEach(item => {
+        item.addEventListener('click', addInteraction)
+      })
+
+    }
+
+
+let APIKEY = "VojEBdIRm1Nxx5fsMRNKtSchRO73Qv3q";
 
 document.addEventListener("DOMContentLoaded", init);
 function init() {
@@ -98,7 +187,6 @@ function init() {
     fetch(url)
       .then(response => response.json())
       .then(content => {
-        //  data, pagination, meta
         console.log(content.data);
         console.log("META", content.meta);
         let fig = document.createElement("figure");
@@ -106,7 +194,6 @@ function init() {
         img.src = content.data[0].images.downsized.url;
         img.alt = content.data[0].title;
         fig.appendChild(img);
-       
         let gif = document.querySelector(".gif");
         gif.insertAdjacentElement("afterbegin", fig);
         document.querySelector("#search").value = "";
@@ -117,106 +204,49 @@ function init() {
   });
 }
 
-
-
-
-
-// post request of form data to /mypage 
-
-
-// const onclick = (e) => {
-//   const data = {
-//     data: document.querySelector('input').value
-//   }
-
-
-//   e.preventDefault();
-
-//   fetch("/mypage", {
-//     method: 'POST',
-//     mode: 'no-cors',
-//     cache: 'no-cache',
-//     credentials: 'same-origin',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(data) // body data type must match "Content-Type" header
-//   });
-// }
-
-// const button = document.querySelector('#submit');
-
-// button.onclick = onclick;
-
-
-
-
-
-
 // function to post a new blog
-
 async function postBlog(e) {
   e.preventDefault();
   try {
     const newBlogData = {
       id: "",
       title: document.getElementById("title").value,
-      text: document.getElementById("text").value,
+      text: document.getElementById("textArea").value,
       image_url: document.getElementById("gif").value,
-      isPublic: document.getElementsByClassName("radioBTN").value,
-      interactions: "", 
-      comments: "", 
+      isPublic: document.querySelector('input[name="isPublic"]:checked').value,
+      interactions: 0, 
+      comments: ""
     };
-
     const options = {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify(newBlogData),
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
     };
-
-    const response = await fetch("http://localhost:3000/mypage", options);
+    const response = await fetch("https://fierce-plateau-94232.herokuapp.com/mypage/", options);
     const data = await response.json();
-    return data;
-  } catch (err) {
-    console.warn(err);
-  }
+    console.log(data)
+    document.getElementById("title").value = ''
+    document.getElementById("textArea").value = ''
+    alert("Your blog has been posted!")
+    } catch (err) {
+      console.warn(err);
+    }
 }
-
-
-const submit = document.getElementById("submit");
-// const submitprivate = document.getElementById("submitprivate");
+const submit = document.getElementById('submit')
 
 submit.addEventListener("click", postBlog)
-// submitprivate.addEventListener("click", postBlog);
-
-
-
 
 ///////DARK MODE/////////
 
-const about = document.getElementById("aboutLink");
-const darkmode = document.getElementById("darkLink");
-let CheckDarkOn = false;
+let icon = document.getElementById("icon");
 
-darkmode.addEventListener("click", swicthColours);
-
-function swicthColours(e) {
-  console.log("dark mode clicked");
-  console.log(CheckDarkOn);
-  e.preventDefault();
-  let mainbody = document.querySelector("body");
-  //   mainbody.style.backgroundColor = "rgb(39, 39, 39)";
-  //   mainbody.style.color = "white";
-
-  if (CheckDarkOn === false) {
-    mainbody.style.backgroundColor = "rgb(39, 39, 39)";
-    mainbody.style.color = "white";
-    CheckDarkOn = true;
+document.getElementById("icon").onclick = function (){
+  document.body.classList.toggle("dark-theme");
+  if (document.body.classList.contains("dark-theme")){
+    icon.src = "images/sun.png"
   } else {
-    mainbody.style.backgroundColor = "white";
-    mainbody.style.color = "black";
-    CheckDarkOn = false;
+    icon.src = "images/moon.png"
   }
 }

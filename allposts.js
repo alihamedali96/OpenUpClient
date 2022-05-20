@@ -1,16 +1,7 @@
-//   const url = "http://localhost:3000/homepage"
-// const options = {
-//   method: 'PATCH',
-//   body: JSON.stringify({id: 1, comments: "What a great day this was to make a new post"})
-// }
-// fetch(url, options)
-//   .then(console.log("Patched post"))
-//   .catch(err => console.warn('Opa, something went wrong!', err)) 
-
 const mainContainer = document.querySelector('.flex-container')
 
 function createSection(data){
-    //make div, ul and img
+    
     const cardBody = document.createElement('div')
     cardBody.className = 'cardBody'
     
@@ -23,42 +14,67 @@ function createSection(data){
     cardText.textContent = data.text
 
     const cardImg = document.createElement('img')
+    cardImg.className = 'gifIMG'
     const linkToImage = data.img_url
     cardImg.setAttribute('src', linkToImage)
+    
+    if(data.img_url = 'undefined'){
+        cardImg.style.display = 'none'
+    }
 
-    const comments = document.createElement('p')
-    comments.className = 'comments'
-    comments.textContent = data.comments
+    const commentsArea = document.createElement('p')
+    commentsArea.className = 'comments'
+    for(let i = 0; i < data.comments.length; i++){
+        const comment = document.createElement('p')
+        comment.textContent = data.comments[i]
+        commentsArea.appendChild(comment)
+    }
+
 
     const form = document.createElement('form')
-    form.action = 'PATCH'
+    form.className = 'commentForm'
+    form.id = data.id
 
+    
     const formLabel = document.createElement('label')
     formLabel.setAttribute('for', 'commentsSection')
 
     const textArea = document.createElement('textarea')
+    textArea.className = 'commentInput'
     textArea.setAttribute('name', 'commentsSection')
-
+    textArea.id = `CommentText${data.id}`
+    
     const submit = document.createElement('input')
     submit.setAttribute('type', 'submit')
     submit.setAttribute('value', 'Post comment')
+    submit.className = 'commentBtn'
+    
     
     const btnGroup = document.createElement('div')
     btnGroup.className = 'btn-group'
-    const counter = document.createElement('div')
-    counter.className = 'counter'
-    counter.textContent = data.interactions
+    btnGroup.id = data.id
+    
     const button1 = document.createElement('button')
-    button1.className = 'likes button button1'
+    button1.className = 'likes button button1 clickme'
     button1.innerHTML = '&#128293;'
     const button2 = document.createElement('button')
-    button2.className = 'likes button button2'
+    button2.className = 'likes button button2 clickme'
     button2.innerHTML = '&#128151;'
     const button3 = document.createElement('button')
-    button3.className = 'likes button button3'
-    button3.innerHTML = '&#128078;'
+    button3.className = 'likes button button3 clickme'
+    button3.innerHTML = '&#11088;'
+    const button4 = document.createElement('div')
+    button4.className = 'likes button button4'
+    button4.textContent = 'Clicks'
+    const counter = document.createElement('span')
+    counter.id = 'counter'
+    counter.textContent = data.interactions
+    const lineBreak = document.createElement('BR')
 
-    btnGroup.appendChild(counter)
+    button4.appendChild(lineBreak)
+    button4.appendChild(counter)
+
+    btnGroup.appendChild(button4)
     btnGroup.appendChild(button1)
     btnGroup.appendChild(button2)
     btnGroup.appendChild(button3)
@@ -72,7 +88,7 @@ function createSection(data){
     cardBody.appendChild(cardText)
     cardBody.appendChild(cardImg)
     cardBody.appendChild(btnGroup)
-    cardBody.appendChild(comments)
+    cardBody.appendChild(commentsArea)
     cardBody.appendChild(form)
 
 
@@ -91,8 +107,6 @@ searchBar.addEventListener('keydown', (e)=>{
     }
 })
 
-//caching issue
-//need to mske insensitive to case
 
 searchBtn.addEventListener('click', (e)=>{
     e.preventDefault()
@@ -112,9 +126,9 @@ searchBtn.addEventListener('click', (e)=>{
 
 async function getAllPosts(){
     try{
-        const response = await fetch('http://localhost:3000/allposts/')
-        posts = await response.json()
-        posts.forEach(e => createSection(e))
+        const response = await fetch('https://fierce-plateau-94232.herokuapp.com/allposts/')
+        data = await response.json()
+        data.forEach(e => createSection(e))
     }catch(err){
         console.log('Something went wrong '+ err.message)
     }
@@ -126,43 +140,88 @@ function refreshPage(){
     window.location.reload();
 } 
 
-// function to get all the posts
+const newSearchBtn = document.querySelector('.newSearch')
+newSearchBtn.addEventListener('click', refreshPage)
 
-async function getData() {
-    const response = await fetch(`http://localhost:3000/allposts`)
-    const data = response.json();
-    console.log(data);
-    return data;
-  }
-  
-  getData()
+window.onload=function(){
+    const postCommentForm = document.querySelectorAll('.commentForm')
+    async function postComment(e) {
+        e.preventDefault();
+        const commentIdString = e.target.id
+        const commentId = parseInt(commentIdString)
+        const commentText = e.target.commentsSection
+        console.log(commentId)    
+        console.log(commentText.value)
+        try {
+            const newCommentData = {
+                id: commentId,
+                comments: commentText.value,
+            };
+            console.log(newCommentData)
+            const options = {
+                method: "PATCH",
+                body: JSON.stringify(newCommentData),
+                headers: {
+                "Content-Type": "application/json; charset=UTF-8",
+            },
+            };
+            const response = await fetch("https://fierce-plateau-94232.herokuapp.com/homepage/", options);
+            const data = await response.json();
+            e.target.commentsSection.value = ''
+            alert('Your comment has been posted!')
+            console.log(data)
+            } catch (err) {
+                console.warn(err);
+            }
+        }
+        postCommentForm.forEach(item => {
+            item.addEventListener('submit', postComment)
+        })
+
+    const btn = document.querySelectorAll('.clickme')
+    // const btnGroup = document.querySelectorAll('.btn-group')
+    async function addInteraction(e) {
+        e.preventDefault();
+        const buttonIdString = e.target.parentElement.id
+        const buttonId = parseInt(buttonIdString)
+        console.log(buttonId)
+        e.currentTarget.disabled = true
+        try {
+            const newInteractionData = {
+                        id: buttonId,
+                        }
+            console.log(newInteractionData)
+            const options = {
+            method: "PATCH",
+            body: JSON.stringify(newInteractionData),
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8",
+            },          
+        }
+            const response = await fetch(`https://fierce-plateau-94232.herokuapp.com/posts/${buttonId}/`, options);
+            const data = await response.json();
+            console.log(data)
+            } catch (err) {
+                console.warn(err);
+            }
+        }
+        btn.forEach(item => {
+            item.addEventListener('click', addInteraction)
+        })
+    }
 
 
+///////DARK MODE/////////
 
 
-  ///////DARK MODE/////////
+let icon = document.getElementById("icon");
 
-const about = document.getElementById("aboutLink");
-const darkmode = document.getElementById("darkLink");
-let CheckDarkOn = false;
-
-darkmode.addEventListener("click", swicthColours);
-
-function swicthColours(e) {
-  console.log("dark mode clicked");
-  console.log(CheckDarkOn);
-  e.preventDefault();
-  let mainbody = document.querySelector("body");
-  //   mainbody.style.backgroundColor = "rgb(39, 39, 39)";
-  //   mainbody.style.color = "white";
-
-  if (CheckDarkOn === false) {
-    mainbody.style.backgroundColor = "rgb(39, 39, 39)";
-    mainbody.style.color = "white";
-    CheckDarkOn = true;
+document.getElementById("icon").onclick = function (){
+  document.body.classList.toggle("dark-theme");
+  if (document.body.classList.contains("dark-theme")){
+    icon.src = "images/sun.png"
   } else {
-    mainbody.style.backgroundColor = "white";
-    mainbody.style.color = "black";
-    CheckDarkOn = false;
+    icon.src = "images/moon.png"
   }
 }
+

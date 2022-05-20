@@ -10,70 +10,45 @@
     <title>All Posts</title>
     <link rel="stylesheet" href="allposts.css">
 </head>
-
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="index.html"> <img src="images/OpenUp_logo.png" alt="logo" width="60" height="48" class="d-inline-block align-text-top"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="allposts.html">All Posts</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="myblog.html">My Blog</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="darkLink" href="#">Darkmode</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <input type="checkbox" id="toggle" class="toggle--checkbox">
-        <label for="toggle" class="toggle--label">
-          <span class="toggle--label-background"></span>
-        </label>
-    
-      </nav>
-      
-       <!-- SECTION -->
-      <section class="alert text-center bg-secondary text-white">
-        Latest posts
+    <nav>
+      <ul>
+        <li><a class="navbar-brand" href="index.html"><img src="images/OpenUp_logo.png" alt="logo" width="60" height="48" class="d-inline-block align-text-top"></a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="allposts.html">All Posts</a></li>
+        <li><a href="myblog.html">My blog</a></li>
+        <li id="navIcon"><img src="images/moon.png" id="icon" alt="moon"></li>
+      </ul>
+    </nav>
+    <!-- SECTION -->
+    <section class="section">
+        All blog posts
     </section>
     <div class="searchDiv">
       <form class="d-flex">
         <input id="searchBar" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button id="searchBtn" class="btn btn-outline-success" type="submit">Search</button>
+        <button id="searchBtn" class="btn btn-outline-dark" type="submit">Search</button>
       </form>
     </div>
     <div class="newSearchDiv">
-      <button class="newSearch" type="submit" onClick="refreshPage()">New Search</button>
+      <button class="newSearch" type="submit">New Search</button>
     </div>
     <div class="flex-container">
-
     </div>
-
-    <script>
-
-      
-    </script>
-
-    <div class="gif"></div>
-
-    <section id="searchResults" class="cards"></section>
-
-
-      
-  
-
-
-      <footer> futureproof</footer>
+    <div class="gif">
+    </div>
+    <section id="searchResults" class="cards">
+    </section>
+    <footer> 
+      <span><a class="nameLink" href="https://github.com/LaylaSouthcombe">Layla</a></span>
+      <span><a class="nameLink" href="https://github.com/Igormirowski">Igor</a></span>
+      <span><a class="nameLink" href="https://github.com/alihamedali96">Ali</a></span>
+      <span><a class="nameLink" href="https://github.com/TurtleScouting">Gary</a></span>
+      <span><a class="nameLink" href="https://github.com/nasiima">Nasiima</a></span>
+      <span><a class="nameLink" href="https://github.com/alihamedali96/OpenUpServer">GitHub Server</a></span>
+      <span><a class="nameLink" href="https://github.com/alihamedali96/OpenUpClient">GitHub Repo</a></span>
+      <a href="https://github.com/alihamedali96/OpenUpClient"><p class="foot2">futureproof</p></a>
+    </footer>
 </body>
 </html>
