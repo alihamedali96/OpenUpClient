@@ -36,6 +36,7 @@ function createSection(data){
 
     const formLabel = document.createElement('label')
     formLabel.setAttribute('for', 'commentsSection')
+    form.addEventListener('submit', postComment)
 
     const textArea = document.createElement('textarea')
     textArea.className = 'commentInput'
@@ -47,6 +48,8 @@ function createSection(data){
     submit.setAttribute('type', 'submit')
     submit.setAttribute('value', 'Post comment')
     submit.className = 'commentBtn'
+
+      
     
     const btnGroup = document.createElement('div')
     btnGroup.className = 'btn-group'
@@ -55,12 +58,15 @@ function createSection(data){
     const button1 = document.createElement('button')
     button1.className = 'likes button button1 clickme'
     button1.innerHTML = '&#128293;'
+    button1.addEventListener('click', addInteraction)
     const button2 = document.createElement('button')
     button2.className = 'likes button button2 clickme'
     button2.innerHTML = '&#128151;'
+    button2.addEventListener('click', addInteraction)
     const button3 = document.createElement('button')
     button3.className = 'likes button button3 clickme'
     button3.innerHTML = '&#11088;'
+    button3.addEventListener('click', addInteraction)
     const button4 = document.createElement('div')
     button4.className = 'likes button button4'
     button4.textContent = 'Clicks'
@@ -93,7 +99,7 @@ function createSection(data){
 
 async function getMyPosts(){
   try{
-      const response = await fetch('https://fierce-plateau-94232.herokuapp.com/mypage/')
+      const response = await fetch('https://fierce-plateau-94232.herokuapp.com/mypage')
       const data = await response.json()
       data.forEach(e => createSection(e))
       
@@ -104,9 +110,6 @@ async function getMyPosts(){
 
 getMyPosts()
 
-const flexCont = document.querySelector('.flex-container')
-
-window.onload=function(){
     const postCommentForm = document.querySelectorAll('.commentForm')
     async function postComment(e) {
         e.preventDefault();
@@ -137,9 +140,7 @@ window.onload=function(){
             console.warn(err);
           }
       }
-    postCommentForm.forEach(item => {
-        item.addEventListener('submit', postComment)
-      })
+    
 
     const btn = document.querySelectorAll('.clickme')
     async function addInteraction(e) {
@@ -167,11 +168,7 @@ window.onload=function(){
             console.warn(err);
           }
       }
-      btn.forEach(item => {
-        item.addEventListener('click', addInteraction)
-      })
-
-    }
+      
 
 
 let APIKEY = "VojEBdIRm1Nxx5fsMRNKtSchRO73Qv3q";
@@ -194,7 +191,7 @@ function init() {
         img.src = content.data[0].images.downsized.url;
         img.alt = content.data[0].title;
         fig.appendChild(img);
-        let gif = document.querySelector(".gif");
+        let gif = document.querySelector(".gifIMG");
         gif.insertAdjacentElement("afterbegin", fig);
         document.querySelector("#search").value = "";
       })
@@ -249,4 +246,4 @@ document.getElementById("icon").onclick = function (){
   } else {
     icon.src = "images/moon.png"
   }
-}
+} 
