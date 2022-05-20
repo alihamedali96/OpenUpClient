@@ -7,8 +7,6 @@
   --pmcolor: #f1f0f9;
   --sdcolor: #fefefe;
   --ttcolor: #2e2e2e;
-  --primary-color: gainsboro;
-  --secondary-color: #212121;
   /** sunny side **/
   --blue-background: #C2E9F6;
   --blue-border: #72cce3;
@@ -31,6 +29,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  padding-bottom: 100px;
 }
 
 .section {
@@ -362,6 +361,7 @@ li a {
 }
 
 /* Dark Mode - we create css variables and add the in the place of color code */
+
 .dark-theme{
   --primary-color: #212121;
   --secondary-color: gainsboro;
