@@ -55,6 +55,7 @@
   width: 40%;
   height: 600px;
   padding: 30px;
+  padding-bottom: 0px;
   margin: 40px;
   overflow: auto;
   border-radius: 0.25rem;
@@ -109,6 +110,15 @@
 .clickme:disabled{
   background-color: rgb(173, 136, 208);
 }
+
+.commentForm{
+  position: sticky;
+  bottom: 0;
+  background-color: rgb(202, 178, 224);
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
 
 .comments {
   display: flex;

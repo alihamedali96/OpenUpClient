@@ -149,6 +149,7 @@ footer {
   width: 40%;
   height: 600px;
   padding: 30px;
+  padding-bottom: 0;
   margin: 40px;
   overflow: auto;
   border-radius: 0.25rem;
@@ -207,6 +208,14 @@ footer {
 
 .clickme:disabled{
   background-color: rgb(236, 136, 153);
+}
+
+.commentForm{
+  position: sticky;
+  bottom: 0;
+  background-color: rgb(238, 172, 183);
+  padding-bottom: 20px;
+  padding-top: 10px;
 }
 
 .comments {

@@ -219,6 +219,7 @@ input {
   width: 40%;
   height: 600px;
   padding: 30px;
+  padding-bottom: 0px;
   margin: 40px;
   overflow: auto;
   border-radius: 0.25rem;
@@ -271,6 +272,14 @@ input {
 }
 .clickme:disabled{
   background-color: rgb(93, 164, 185);
+}
+
+.commentForm{
+  position: sticky;
+  bottom: 0;
+  background-color: rgb(178, 213, 224);
+  padding-bottom: 20px;
+  padding-top: 10px;
 }
 
 .comments {
