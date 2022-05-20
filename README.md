@@ -33,8 +33,9 @@
 OpenUp is an anonymous blogging site where anyone can go and post X character entries with an optional gif. There are also three emoji reactions to existing posts. 
 
 ### Remote Hosting
-The site is hosted [here](netlify link) on Netlify
-and our API is hosted [here](heroku link) on Heroku.
+The site is hosted [here](https://openup-fp.netlify.app/) on Netlify
+and our API is hosted [here](https://fierce-plateau-94232.herokuapp.com/) on Heroku.
+
 
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com) TO BE ADDED 
@@ -102,8 +103,9 @@ and our API is hosted [here](heroku link) on Heroku.
 <!-- GETTING STARTED -->
 # Getting Started
 ### Remote Hosting
-The site is hosted [here](netlify link) on Netlify
-and our API is hosted [here](heroku linkl) on Heroku.
+The site is hosted [here](https://openup-fp.netlify.app/) on Netlify
+and our API is hosted [here](https://fierce-plateau-94232.herokuapp.com/) on Heroku.
+
 
 <!-- INSTALLATION/USAGE EXAMPLES/TESTING -->
 # Installation and Usage
@@ -123,13 +125,14 @@ Test:
 
 
 ### Homepage
-![image](screenshot)
+![image](images/homepage.png)
 
 ### All posts page - see lates posts 
-![image](.png)
+![image](images/allposts.png)
 
 ### My blog page - to post 
-![image](screensot)
+![image](images/myblog.png)
+
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
