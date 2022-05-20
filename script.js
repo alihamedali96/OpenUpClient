@@ -40,6 +40,7 @@ function createSection(data){
 
     const textArea = document.createElement('textarea')
     textArea.className = 'commentInput'
+    textArea.setAttribute('maxlength', 100)
     textArea.setAttribute('name', 'commentsSection')
     textArea.id = `CommentText${data.id}`
 

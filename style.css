@@ -165,6 +165,11 @@ footer {
   margin: 10px;
 }
 
+.gif{
+  width: 100px;
+  background-color: #f5eb71;
+}
+
 .cardTitle {
   font-family: 'Domine', serif;
   color: black;
@@ -192,11 +197,15 @@ footer {
   height: 35px;
   border-radius: 30px;
   text-align: center;
-  background-color: rgb(236, 136, 153);
+  background-color: rgb(233, 194, 200);
   border: none;
   outline: none;
   margin-right: 5px;
   margin-top: 15px;
+}
+
+.clickme:disabled{
+  background-color: rgb(236, 136, 153);
 }
 
 .comments {
@@ -208,6 +217,8 @@ footer {
 .comments > p{
   width: 100%;
   margin-top: 20px;
+  background-color: rgb(233, 194, 200);
+  height: 60px;
 }
 
 .btn-group {

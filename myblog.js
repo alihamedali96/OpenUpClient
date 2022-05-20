@@ -186,13 +186,11 @@ function init() {
       .then(content => {
         console.log(content.data);
         console.log("META", content.meta);
-        let fig = document.createElement("figure");
-        let img = document.createElement("img");
+        const img = document.createElement("img");
         img.src = content.data[0].images.downsized.url;
         img.alt = content.data[0].title;
-        fig.appendChild(img);
-        let gif = document.querySelector(".gifIMG");
-        gif.insertAdjacentElement("afterbegin", fig);
+        const gifArea = document.getElementById('gif')
+        gifArea.appendChild(img)
         document.querySelector("#search").value = "";
       })
       .catch(err => {
