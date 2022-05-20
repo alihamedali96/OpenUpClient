@@ -128,7 +128,7 @@ searchBtn.addEventListener('click', (e)=>{
 
 async function getAllPosts(){
     try{
-        const response = await fetch('https://fierce-plateau-94232.herokuapp.com/allposts/')
+        const response = await fetch('https://shrouded-dawn-75453.herokuapp.com/allposts/')
         data = await response.json()
         data.forEach(e => createSection(e))
     }catch(err){
@@ -167,7 +167,7 @@ newSearchBtn.addEventListener('click', refreshPage)
                 "Content-Type": "application/json; charset=UTF-8",
             },
             };
-            const response = await fetch("https://fierce-plateau-94232.herokuapp.com/homepage/", options);
+            const response = await fetch("https://shrouded-dawn-75453.herokuapp.com/homepage/", options);
             const data = await response.json();
             e.target.commentsSection.value = ''
             alert('Your comment has been posted!')
@@ -197,7 +197,7 @@ newSearchBtn.addEventListener('click', refreshPage)
                 "Content-Type": "application/json; charset=UTF-8",
             },          
         }
-            const response = await fetch(`https://fierce-plateau-94232.herokuapp.com/posts/${buttonId}/`, options);
+            const response = await fetch(`https://shrouded-dawn-75453.herokuapp.com/posts/${buttonId}/`, options);
             const data = await response.json();
             console.log(data)
             } catch (err) {

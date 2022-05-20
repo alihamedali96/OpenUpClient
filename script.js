@@ -101,7 +101,7 @@ function createSection(data){
 
 async function getTopPosts(){
     try{
-        const response = await fetch('https://fierce-plateau-94232.herokuapp.com/homepage/')
+        const response = await fetch('https://shrouded-dawn-75453.herokuapp.com/homepage/')
         const data = await response.json()
         data.forEach(e => createSection(e))
         
@@ -133,7 +133,7 @@ const flexCont = document.querySelector('.flex-container')
                 "Content-Type": "application/json; charset=UTF-8",
                 },
             };
-            const response = await fetch("https://fierce-plateau-94232.herokuapp.com/homepage/", options);
+            const response = await fetch("https://shrouded-dawn-75453.herokuapp.com/homepage/", options);
             const data = await response.json();
             e.target.commentsSection.value = ''
             alert('Your comment has been posted!')
@@ -163,7 +163,7 @@ const flexCont = document.querySelector('.flex-container')
                 "Content-Type": "application/json; charset=UTF-8",
             },          
         }
-            const response = await fetch(`https://fierce-plateau-94232.herokuapp.com/posts/${buttonId}/`, options);
+            const response = await fetch(`https://shrouded-dawn-75453.herokuapp.com/posts/${buttonId}/`, options);
             const data = await response.json();
             console.log(data)
             } catch (err) {
